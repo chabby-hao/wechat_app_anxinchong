@@ -1,0 +1,23 @@
+<!--pages/register/register.wxml-->
+<view class="register beijing">
+
+  <view class="page-section">
+      <view class="wxinput_view">
+        <input maxlength="11" bindinput="bindPhoneInput" placeholder-class="wxplace" class="wxinput wxinput-top" type="number" maxlength='11' placeholder="填写手机号" />
+        <button style="border:none;background-color:transparent" plain="true" class="wxinput_bt" bindtap='sendVerifyCode'>{{code_text}}</button>
+      </view>
+  </view>
+
+  <view class="page-section">
+      <view class="wxinput_view">
+        <input bindinput="bindVerifyCodeInput" placeholder-class='wxplace' class="wxinput" type="number" placeholder="输入验证码" />
+      </view>
+  </view>
+
+  <view class="page-section">
+      <view class="wxbt_view">
+        <button bindtap='login' class='wxbt'>注册并登录</button>
+      </view>
+  </view>
+
+</view>

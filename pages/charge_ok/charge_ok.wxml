@@ -1,0 +1,26 @@
+<!--pages/charging/charging.wxml-->
+<view class="beijing">
+
+  <view class="yuanhuan center">
+    <image style="width:484rpx;height:484rpx;" src="/image/zhuangtai@2x.png"></image>
+    <image style="width:148rpx;height:99rpx;" class="charge-ok-image" src="/image/ok@2x.png"></image>
+    <text class="charge-ok-text">充电完成</text>
+  </view>
+
+  <!-- <view class="yichong">
+    <image style="width:22rpx;height:46rpx;" src="/image/yichong@2x.png"></image>
+  </view> -->
+
+  <!-- <view class="min">
+    <image style="width:24rpx;height:48rpx;" src="/image/min@2x.png"></image>
+  </view> -->
+
+  <view class="pause-view text-center">
+    <image style="width:258rpx;height:258rpx;" src="/image/pause@2x.png"></image>
+  </view>
+
+  <view class="wufachongdian-view">
+    <text class="wufachongdian-text">无法充电？</text>
+  </view>
+
+</view>

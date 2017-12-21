@@ -1,0 +1,10 @@
+<!--pages/help/help.wxml-->
+<view class="beijing center">
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-color="rgba(30, 30,30, 0.3)"  indicator-active-color="rgba(255,255,255,0.6)" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{key}}">
+      <swiper-item>
+         <image class="image" src="{{item}}" mode="widthFix" /> 
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

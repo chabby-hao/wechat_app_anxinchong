@@ -1,0 +1,37 @@
+<!--pages/wallet/wallet.wxml-->
+<view class="beijing">
+
+  <view class="balance-label-view">
+    <text class="balance-label-text">余额:</text>
+  </view>
+  <view class="balance-view text-center">
+    <text class="balance-icon">￥</text>
+    <text class="balance-text">{{balance}}</text>
+  </view>
+
+  <view class="line-css"></view>
+
+  <view class="bt-view">
+    <view bindtap='orderDetails' class="small-bt-view">
+      <button class="user-button my-wallet">
+        <image style="width:64rpx;height:72rpx;" src="/image/mingxi@2x.png"></image>
+      </button>
+      <text class="my-text">充值明细</text>
+    </view>
+
+    <view class="small-bt-view">
+      <button class="user-button my-wallet">
+        <image style="width:78rpx;height:78rpx;" src="/image/tuikuan@2x.png"></image>
+      </button>
+      <text class="my-text">申请退款</text>
+    </view>
+
+  </view>
+
+  <view class="line-css"></view>
+
+  <view class="pay-view">
+    <button bindtap='pay' class="pay-bt">立即充值</button>
+  </view>
+
+</view>

@@ -1,0 +1,14 @@
+/* pages/help/help.wxss */
+
+
+.swiper {
+  padding-top:300rpx;
+  height:732rpx;
+  width:100%;
+  text-align: center;
+}
+
+.image{
+  width:488rpx;
+  height:632rpx;
+}

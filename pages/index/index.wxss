@@ -1,0 +1,33 @@
+/**index.wxss**/
+page{
+  height: 100%;
+}
+
+.help-image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.help-view {
+  position: absolute;
+  left: 608rpx;
+  top: 58rpx;
+}
+
+.charge-view {
+  padding-top: 288rpx;
+  position: relative;
+}
+
+.charge-image{
+  width:374rpx;
+  height:374rpx;
+}
+
+.user-view{
+  margin-top:110rpx;
+  width:120rpx;
+  height:122rpx;
+}
+
+

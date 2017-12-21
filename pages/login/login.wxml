@@ -1,0 +1,9 @@
+<!--pages/login/login.wxml-->
+<view class="login beijing">
+  <view class="wxview">
+    
+    <button style="border:none" plain="true" class='wxbt' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"><image src='/image/wxlogobt.png' class='wximg'></image></button>
+    <button bindtap='phoneLogin' style="border:none;color:#FEFEFE" plain="true" class='phonebt'>输入手机号登录 / 注册</button>
+  </view>
+
+</view>

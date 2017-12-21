@@ -1,0 +1,9 @@
+<!--pages/no_orders/no_orders.wxml-->
+<view class="beijing">
+  <view class="no-orders-view">
+    <image class="no-orders-img" src="/image/icon@2x.png"></image>
+  </view>
+  <view class="text-view">
+    <text class="text">暂未充值</text>
+  </view>
+</view>

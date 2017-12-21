@@ -1,0 +1,25 @@
+<view class="beijing">
+  <view class="title title-address">万和家园小区充电桩1号口</view>
+  <view class="title title-number">编号：123456</view>
+  <scroll-view scroll-left="{{left}}" bindtap="untouch" bindtouchmove='untouch' bindtouchcancel='untouch' bindtouchend='untouch' class="scroll-view" scroll-x="{{scroll_x}}" scroll-with-animation bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+    <view class="left scroll-view-item_H">
+      <image class="scroll-image {{active1}}" src="/image/max@2x.png"></image>
+    </view>
+    <view class="scroll-view-item_H">
+      <image class="scroll-image {{active2}}" src="/image/1@2x.png"></image>
+    </view>
+    <view class="scroll-view-item_H">
+      <image class="scroll-image {{active3}}" src="/image/2@2x.png"></image>
+    </view>
+    <view class="right scroll-view-item_H">
+      <image class="scroll-image {{active4}}" src="/image/4@2x.png"></image>
+    </view>
+  </scroll-view>
+  <form bindsubmit="formSubmit" report-submit="{{reportSubmit}}">
+    <view class="bt-view">
+      <button class="bt-touming" form-type='submit'>
+        <image class="img-charge" src="/image/start-charge@2x.png"></image>
+      </button>
+    </view>
+  </form>
+</view>

@@ -1,0 +1,43 @@
+<!--pages/user/user.wxml-->
+<view class="beijing">
+  <view class="userinfo-view center">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <!-- <image class="userinfo-avatar" src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJDJaDaVMVthrCicJ2ww005vvB6KSxu5Y9YhSb7EHXCGcia6aSgWn0FvEQdZ9ObCVPMcALzjQdRCPTg/0" background-size="cover"></image> -->
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <!-- <text class="userinfo-nickname">风神月迹</text> -->
+  </view>
+
+  <view class="line-css"></view>
+  <view class="bt-view">
+    <view bindtap='myWallet' class="small-bt-view">
+      <button  class="user-button my-wallet">
+        <image style="width:64rpx;height:64rpx;" src="/image/qianbao@2x.png"></image>
+      </button>
+      <text class="my-text">我的钱包</text>
+    </view>
+    <view bindtap='myCharge' class="small-bt-view">
+      <button  class="user-button my-charge">
+        <image style="width:60rpx;height:60rpx;" src="/image/lishi@2x.png"></image>
+      </button>
+      <text class="my-text">我的充电</text>
+    </view>
+    <view bindtap='makePhoneCall' class="small-bt-view">
+      <button  class="user-button my-custom">
+        <image style="width:60rpx;height:60rpx;" src="/image/kefu@2x.png"></image>
+      </button>
+      <text class="my-text">客服热线</text>
+    </view>
+  </view>
+
+
+  <view class="invite-view">
+    <button open-type="share" class="account-bt">邀请好友</button>
+  </view>
+
+  <view class="line-css"></view>
+
+  <view class="account-view">
+    <button bindtap='logout' class="account-bt">切换账号</button>
+  </view>
+
+</view>

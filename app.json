@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/help/help",
+    "pages/charging/charging",
+    "pages/charge_ok/charge_ok",
+    "pages/charge_ab/charge_ab",
+    "pages/charge_history/charge_history",
+    "pages/pay/pay",
+    "pages/form/form",
+    "pages/register/register",
+    "pages/login/login",
+    "pages/wallet/wallet",
+    "pages/user/user",
+    "pages/orders/orders",
+    "pages/no_orders/no_orders",
+    "pages/no_charges/no_charges"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1c939f",
+    "navigationBarTitleText": "安心充",
+    "navigationBarTextStyle": "white"
+  },
+  "debug": true
+}

@@ -1,0 +1,31 @@
+<!--pages/charging/charging.wxml-->
+<view class="beijing">
+
+  <!-- <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view> -->
+  <image class="charging-gif" src="/image/charging.png" animation="{{animationData}}"></image>
+  <image class="charging-gif" src="/image/charging.png" animation="{{animationData2}}"></image>
+  <image class="charging-gif" src="/image/charging.png" animation="{{animationData3}}"></image>
+  <image class="charging-gif" src="/image/charging.png" animation="{{animationData4}}"></image>
+
+  <view class="fenzhong-text">{{mins}}</view>
+  <view class="yuanhuan center">
+    <image class="yuanhuan-img" src="/image/zhuangtai@2x.png"></image>
+  </view>
+
+  <view class="yichong">
+    <image style="width:22rpx;height:46rpx;" src="/image/yichong@2x.png"></image>
+  </view>
+
+  <view class="min">
+    <image style="width:24rpx;height:48rpx;" src="/image/min@2x.png"></image>
+  </view>
+
+  <view class="pause-view center">
+    <image bindtap='stopCharge' style="width:258rpx;height:258rpx;" src="/image/pause@2x.png"></image>
+  </view>
+
+  <view class="wufachongdian-view">
+    <text class="wufachongdian-text">无法充电？</text>
+  </view>
+
+</view>

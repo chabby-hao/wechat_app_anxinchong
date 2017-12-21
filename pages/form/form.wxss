@@ -1,0 +1,61 @@
+.title{
+  color:#f2f2f2;
+}
+
+.title-address{
+  text-align: center;
+  padding-top: 72rpx;
+  font-size: 30rpx;
+}
+
+.title-number{
+  padding-top: 36rpx;
+  text-align: center;
+  font-size:26rpx;
+}
+
+.scroll-view {
+  padding-top: 144rpx;
+  white-space: nowrap;
+}
+
+.scroll-view-item_H {
+  display: inline-block;
+  width: 366rpx;
+  height: 366rpx;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.scroll-image {
+  opacity: 0.3;
+  width: 316rpx;
+  height: 316rpx;
+}
+
+.active{
+  opacity: 1;
+}
+
+.left {
+  margin-left: 192rpx;
+}
+
+.right {
+  margin-right: 192rpx;
+}
+
+.bt-view{
+  position: absolute;
+  width:100%;
+  bottom: 228rpx;
+}
+
+button::after{
+  content: none;
+}
+
+.img-charge{
+  width:627rpx;
+  height: 96rpx;
+}

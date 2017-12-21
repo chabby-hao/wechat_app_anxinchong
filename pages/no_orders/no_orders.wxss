@@ -1,0 +1,21 @@
+/* pages/no_orders/no_orders.wxss */
+
+.no-orders-view{
+  padding-top: 214rpx;
+  text-align: center;
+  margin-bottom: 126rpx;
+}
+
+.no-orders-img{
+  width:217rpx;
+  height: 252rpx;
+}
+
+.text-view{
+  text-align: center;
+  height: auto;
+}
+
+.text{
+  font-size: 38rpx;
+}
