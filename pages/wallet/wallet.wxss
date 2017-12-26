@@ -1,4 +1,7 @@
 /* pages/wallet/wallet.wxss */
+page{
+  min-height: 100%;
+}
 
 .balance-label-view {
   position: absolute;
@@ -20,7 +23,7 @@
 }
 
 .balance-text {
-  font-size: 188rpx;
+  font-size: 168rpx;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 

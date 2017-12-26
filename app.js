@@ -6,6 +6,8 @@ var checkLogin = require('utils/util.js').checkLogin;
 App({
   onLaunch: function () {
     //checkToken(weixinLogin, checkLogin);
+    var info = wx.getSystemInfoSync();
+    console.log(info)
   },
   globalData: {
     token:null,

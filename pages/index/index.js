@@ -13,10 +13,21 @@ const serverUrl = require('../../config').serverUrl;
 Page({
   data: {
     imageSrc: '/image/index@2x.png',//未充电 ,正在冲:'/image/charging@2x.png',
-    timer:null,
+    timer: null,
+
+    top: 288,
+    bottom: 190,
   },
 
   onShow: function () {
+    var b = wx.getSystemInfoSync();
+    var top = b.windowHeight * 0.2 * 2;
+    var bottom = b.windowHeight * 0.2 * 2;
+    //console.log(b);
+    this.setData({
+      top: top,
+      bottom: bottom,
+    })
     //检查是否正在充电
     var _this = this;
     clearInterval(_this.timer);
@@ -27,18 +38,18 @@ Page({
 
   },
 
-  checkFinish:function(finish){
-    if(finish == 1){
+  checkFinish: function (finish) {
+    if (finish == 1) {
       var token = wx.getStorageSync('token');
       wx.request({
         url: serverUrl + '/charge/lastFinish',
-        data:{token:token},
-        success:function(res){
-          if(res.data.code===200){
+        data: { token: token },
+        success: function (res) {
+          if (res.data.code === 200) {
             wx.showModal({
               title: '提示',
               content: res.data.data.content,
-              showCancel:false,
+              showCancel: false,
             })
           }
         }
@@ -46,7 +57,7 @@ Page({
     }
   },
 
-  onHide: function(){
+  onHide: function () {
     clearInterval(this.timer);
   },
 

@@ -9,6 +9,7 @@ Page({
   data: {
     balance: '0.0',
     showRefund: false,
+    hasRefund:false,
   },
 
   orderDetails: function () {
@@ -21,6 +22,14 @@ Page({
   pay: function () {
     wx.navigateTo({
       url: '../pay/pay',
+    })
+  },
+
+  discount:function(){
+    wx.showModal({
+      title: '提示',
+      content: '敬请期待',
+      showCancel:false,
     })
   },
 
@@ -40,6 +49,8 @@ Page({
               if (res.data.code === 200) {
                 that.setData({
                   balance:'0.0',
+                  hasRefund:true,
+                  showRefund:false,
                 })
                 //退款提交成功
                 wx.showToast({
@@ -83,6 +94,28 @@ Page({
           }
         }
       }
+    })
+    wx.request({
+      url: serverUrl + '/user/hasRefund',
+      data: { token: token },
+      success: function (data) {
+        if (data.data.code === 200) {
+          if (data.data.data.has_refund === 1) {
+            that.setData({
+              hasRefund: true,
+            });
+          }
+        }
+      }
+    })
+  },
+
+  refunding:function(){
+    wx.showModal({
+      title: '提示',
+      content: '运营人员正在处理，退款成功会返回到您的微信账号中，请耐心等待',
+      showCancel:false,
+      confirmText:'知道了',
     })
   },
 

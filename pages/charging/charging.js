@@ -77,7 +77,7 @@ Page({
               //充电完成
               var taskId = res.data.data.task_id;
               clearInterval(timeInterval);
-              wx.redirectTo({
+              wx.navigateBack({
                 url: '../index/index?finish=1',
               })
             } else if (state === 3) {

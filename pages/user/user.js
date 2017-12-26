@@ -8,7 +8,7 @@ Page({
     shareData: {
       title: '安心充',
       desc: '安心充',
-      path: '/index/index'
+      path: '/pages/index/index'
     }
     //canIUse: wx.canIUse('button.open-type.getUserInfo')
   },

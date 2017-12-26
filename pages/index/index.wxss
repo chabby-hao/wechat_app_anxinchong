@@ -26,11 +26,12 @@ page{
 }
 
 .user-view{
-  /* margin-top:110rpx; */
+   /* margin-top:120rpx;  */
   position: absolute;
-  bottom: 200rpx;
-  width:120rpx;
+  bottom: 380rpx;
+  width:100%;
   height:122rpx;
+  text-align: center;
 }
 
 
