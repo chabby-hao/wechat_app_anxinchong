@@ -11,7 +11,9 @@
 <view class="line-css"></view>
 
 <view class="pay-view">
-  <button bindtap='payNow' class="pay-bt">立即充值</button>
+  <button bindtap='payNow' class="pay-bt">
+    <image class="pay-image" src="/image/pay@2x.png"></image>
+  </button>
 </view>
 
 </view>

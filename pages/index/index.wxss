@@ -15,6 +15,7 @@ page{
 }
 
 .charge-view {
+  height: 50%;
   padding-top: 288rpx;
   position: relative;
 }
@@ -25,7 +26,9 @@ page{
 }
 
 .user-view{
-  margin-top:110rpx;
+  /* margin-top:110rpx; */
+  position: absolute;
+  bottom: 200rpx;
   width:120rpx;
   height:122rpx;
 }

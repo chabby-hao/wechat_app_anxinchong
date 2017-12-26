@@ -21,9 +21,9 @@
 
     <view class="small-bt-view">
       <button class="user-button my-wallet">
-        <image style="width:78rpx;height:78rpx;" src="/image/tuikuan@2x.png"></image>
+        <image style="width:72rpx;height:72rpx;" src="/image/youhui@2x.png"></image>
       </button>
-      <text class="my-text">申请退款</text>
+      <text class="my-text">优惠券</text>
     </view>
 
   </view>
@@ -31,7 +31,13 @@
   <view class="line-css"></view>
 
   <view class="pay-view">
-    <button bindtap='pay' class="pay-bt">立即充值</button>
+    <button bindtap='pay' class="pay-bt">
+      <image class="pay-image" src="/image/pay@2x.png"></image>
+    </button>
+    
+    <view wx:if="{{showRefund}}" class="tuikuan-text">
+      <text bindtap='refund'>申请退款</text>
+    </view>
   </view>
 
 </view>

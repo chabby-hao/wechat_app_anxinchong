@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasCharge:true,
     list:[
       
     ]
@@ -25,9 +26,12 @@ Page({
           var lists = res.data.data;
           if(lists.length == 0){
             //没有充电记录
-            
+            that.setData({
+              hasCharge:false,
+            })
           }else{
             that.setData({
+              hasCharge:true,
               list:lists,
             })
           }

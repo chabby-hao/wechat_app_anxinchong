@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasOrder:true,
     list:[
       
     ]
@@ -24,12 +25,16 @@ Page({
         if(res.data.code==200){
           var lists = res.data.data;
           if(lists.length == 0){
-            wx.redirectTo({
-              url: '../no_orders/no_orders',
+            that.setData({
+              hasOrder:false,
             })
+            // wx.redirectTo({
+            //   url: '../no_orders/no_orders',
+            // })
           }else{
             that.setData({
               list:lists,
+              hasOrder:true,
             })
           }
           console.log(lists);

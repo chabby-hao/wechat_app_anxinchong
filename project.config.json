@@ -24,10 +24,10 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "合一",
 					"pathName": "pages/index/index",
-					"query": "deviceId=1"
+					"query": "finish=1"
 				},
 				{
 					"id": 1,
@@ -51,6 +51,36 @@
 					"id": -1,
 					"name": "charge_ab",
 					"pathName": "pages/charge_ab/charge_ab",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "register",
+					"pathName": "pages/register/register",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pay",
+					"pathName": "pages/pay/pay",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "wallet",
+					"pathName": "pages/wallet/wallet",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order",
+					"pathName": "pages/orders/orders",
 					"query": ""
 				}
 			]

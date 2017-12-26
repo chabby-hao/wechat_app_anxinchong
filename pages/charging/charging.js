@@ -75,10 +75,11 @@ Page({
               //clearInterval(timeInterval);
             } else if (state === 2) {
               //充电完成
-              wx.redirectTo({
-                url: '../charge_ok/charge_ok',
-              })
+              var taskId = res.data.data.task_id;
               clearInterval(timeInterval);
+              wx.redirectTo({
+                url: '../index/index?finish=1',
+              })
             } else if (state === 3) {
               //初始化任务，但还未通电
             }
@@ -101,7 +102,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    that.startCharging(that);
+    //that.startCharging(that);
   },
 
   startCharging: function (that) {
@@ -180,6 +181,7 @@ Page({
 
   stopCharge: function () {
     var deviceId = app.globalData.deviceId;
+    var taskId = app.globalData.taskId;
     wx.showModal({
       title: '结束',
       content: '您真的要停止充电吗？',
@@ -189,11 +191,11 @@ Page({
           //调用停止充电
           wx.request({
             url: serverUrl + '/charge/chargeEnd',
-            data: { device_id: deviceId },
+            data: { device_id: deviceId,task_id:taskId },
             success: function (res2) {
               if (res2.data.code == 200) {
                 wx.redirectTo({
-                  url: '../charge_history/charge_history',
+                  url: '../index/index?finish=1',
                 })
               }
             }
@@ -214,16 +216,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.init();
     this.refresh();
+    var token = app.globalData.token;
+    var that = this;
+    wx.request({
+      url: serverUrl + '/charge/chargeMode',
+      data:{token:token},
+      success:function(res){
+        if(res.data.code===200){
+          that.setData({
+            modeText:res.data.data.mode_text,
+            priceText:res.data.data.price_text,
+          });
+        }
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    var time = this.data.timeInterval;
-    console.log(time);
-    clearInterval(time);
+    clearInterval(this.data.timeInterval);
   },
 
   /**

@@ -64,8 +64,10 @@
 }
 
 .pause-view {
+  text-align: center;
   position: absolute;
-  bottom: 188rpx;
+  /* margin-top:  */
+   bottom: 188rpx; 
   width:100%;
 }
 

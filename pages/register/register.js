@@ -10,7 +10,6 @@ Page({
   data: {
     phone: '',
     verify_code: '',
-    code_text: '获取验证码',
     buttonDisable: false,
     url:'',
   },
@@ -81,6 +80,7 @@ Page({
       wx.showToast({
         icon: 'loading',
         title: '验证码有误',
+        duration:1000,
       })
       return false;
     }
@@ -122,6 +122,7 @@ Page({
       wx.showToast({
         icon:'loading',
         title: '手机号有误',
+        duration: 1000,
       });
       return false;
     }

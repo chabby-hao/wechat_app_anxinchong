@@ -5,7 +5,7 @@ page{
 
 .userinfo-view {
   padding-top: 68rpx;
-  margin-bottom: 82rpx;
+  margin-bottom: 70rpx;
 }
 
 .userinfo-avatar {
@@ -16,7 +16,7 @@ page{
 }
 
 .userinfo-nickname {
-  margin-top: 70rpx;
+  margin-top: 40rpx;
   color: #fff;
   font-size: medium;
 }

@@ -4,6 +4,8 @@ const serverUrl = require('../../config').serverUrl;
 const app = getApp();
 Page({
   data: {
+    address:'',
+    addressNumber:'',
     // items: [
     //   { value: '0', name: '充满', checked: true },
     //   { value: '3', name: '3小时', checked: false },
@@ -11,6 +13,7 @@ Page({
     //   { value: '1', name: '1小时', checked: false },
     // ],
     deviceId: null,
+    taskId:null,
     reportSubmit: true,//获取formId
     scroll_x: true,
     leftTo: 0,
@@ -98,9 +101,24 @@ Page({
   
   onLoad: function (option) {
     console.log(option);
+    var that = this;
+    var token = app.globalData.token;
+    var deviceId = option.device_id;
     this.setData({
-      deviceId: option.device_id,
+      deviceId: deviceId,
     });
+    wx.request({
+      url: serverUrl +'/charge/deviceAddress',
+      data:{token:token,device_id:deviceId},
+      success:function(res){
+        if(res.data.code===200){
+          that.setData({
+            address:res.data.data.address,
+            addressNumber:res.data.data.address_number,
+          });
+        }
+      }
+    })
   },
 
   formSubmit: function (e) {
@@ -121,6 +139,7 @@ Page({
         console.log(res);
         if (res.data.code === 200) {
           app.globalData.deviceId = deviceId;
+          app.globalData.taskId = res.data.data.task_id;
           wx.redirectTo({
             url: '../charging/charging',
           })

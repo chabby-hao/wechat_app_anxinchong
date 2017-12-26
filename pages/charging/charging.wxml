@@ -1,5 +1,5 @@
 <!--pages/charging/charging.wxml-->
-<view class="beijing">
+<view class="beijing center">
 
   <!-- <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view> -->
   <image class="charging-gif" src="/image/charging.png" animation="{{animationData}}"></image>

@@ -209,7 +209,7 @@ const btScan = function () {
       success: function (res) {
         if (res.data.code == 200) {
           if (res.data.data.task_id) {
-            app.globalData.deviceId = res.data.data.task_id;
+            app.globalData.taskId = res.data.data.task_id;
             wx.navigateTo({
               url: '../charging/charging',
             })
@@ -230,23 +230,39 @@ const btScan = function () {
                 //     }
                 //   }
                 // })
-
+                var url = res.result;
                 console.log(res.result);
-                var obj = JSON.parse(res.result);
-                console.log(obj);
-                var deviceId = obj.device_id;
-                wx.showModal({
-                  title: res.scanType,
-                  content: res.result,
-                  showCancel: true,
-                  success: function (res) {
-                    if (res.confirm) {
+
+                wx.request({
+                  url: serverUrl + '/charge/checkQrCode',
+                  data:{url:url,token:token},
+                  success: function(res2){
+                    errCheck(res2);
+                    if(res2.data.code===200){
+                      var deviceId = res2.data.data.device_id;
                       wx.navigateTo({
                         url: '../form/form?device_id=' + deviceId,
                       })
+                      //var obj = JSON.parse(res.result);
+                      //console.log(obj);
+                      //var deviceId = obj.device_id;
+                      // wx.showModal({
+                      //   title: '编号',
+                      //   content: '',
+                      //   showCancel: true,
+                      //   success: function (res) {
+                      //     if (res.confirm) {
+                      //       wx.navigateTo({
+                      //         url: '../form/form?device_id=' + deviceId,
+                      //       })
+                      //     }
+                      //   }
+                      // })
                     }
-                  }
+                  },
                 })
+
+                
 
               }
             })
@@ -259,6 +275,26 @@ const btScan = function () {
   }
 };
 
+const errCheck = function(res){
+  if(res.data.code !== 200 && res.data.msg){
+    wx.showModal({
+      title: '提示',
+      content: res.data.msg,
+      //showCancel:false,
+      success:function(res2){
+        if(res2.confirm){
+          if (res.data.code == 2009){
+            //余额不足
+            wx.navigateTo({
+              url: '/pages/pay/pay',
+            });
+          }
+        }
+      }
+    })
+  }
+}
+
 
 module.exports = {
   formatTime: formatTime,
@@ -267,4 +303,5 @@ module.exports = {
   checkToken: checkToken,
   urlTo: urlTo,
   btScan:btScan,
+  errCheck:errCheck,
 }

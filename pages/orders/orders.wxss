@@ -1,5 +1,4 @@
 /* pages/orders/orders.wxss */
-
 .orders-view{
   padding-top: 36rpx;
   padding-bottom: 24rpx;
@@ -38,6 +37,22 @@ money-text{
   text-align: right;
 }
 
-.line-css{
-  /* float:left; */
+.no-orders-view{
+  padding-top: 214rpx;
+  text-align: center;
+  margin-bottom: 126rpx;
+}
+
+.no-orders-img{
+  width:217rpx;
+  height: 252rpx;
+}
+
+.text-view{
+  text-align: center;
+  height: auto;
+}
+
+.text{
+  font-size: 38rpx;
 }

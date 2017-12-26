@@ -1,9 +1,13 @@
 <!--pages/login/login.wxml-->
-<view class="login beijing">
-  <view class="wxview">
-    
-    <button style="border:none" plain="true" class='wxbt' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"><image src='/image/wxlogobt.png' class='wximg'></image></button>
-    <button bindtap='phoneLogin' style="border:none;color:#FEFEFE" plain="true" class='phonebt'>输入手机号登录 / 注册</button>
+<view class="beijing center">
+
+  <view class="image-view">
+    <image class="logo" src="/image/logo@2x.png"></image>
   </view>
+
+    <button class='wxbt' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <image src='/image/wxlogin@2x.png' class='wximg'></image>
+    </button>
+    <text bindtap='phoneLogin' class='phonebt'>输入手机号登录 / 注册</text>
 
 </view>

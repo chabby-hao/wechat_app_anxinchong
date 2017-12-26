@@ -1,32 +1,28 @@
 <!--pages/orders/orders.wxml-->
 <view class="beijing">
-  <block wx:for="{{list}}" wx:for-item="order" wx:key="key">
-    <view class="list-view">
-      <view class="orders-view">
-        <view class="left-view">
-          <text class="success-text">付款成功</text>
-          <text class="time-text">{{order.pay_at}}</text>
+  <block wx:if="{{hasOrder}}">
+    <block wx:for="{{list}}" wx:for-item="order" wx:key="key">
+      <view class="list-view">
+        <view class="orders-view">
+          <view class="left-view">
+            <text class="success-text">付款成功</text>
+            <text class="time-text">{{order.pay_at}}</text>
+          </view>
+          <view class="right-view">
+            <text class="money-text">+{{order.order_amount}}元</text>
+            <text class="wxpay-text">微信支付</text>
+          </view>
         </view>
-        <view class="right-view">
-          <text class="money-text">+{{order.order_amount}}元</text>
-          <text class="wxpay-text">微信支付</text>
-        </view>
+        <view class="line-css"></view>
       </view>
-      <view class="line-css"></view>
+    </block>
+  </block>
+  <block wx:if="{{!hasOrder}}">
+    <view class="no-orders-view">
+      <image class="no-orders-img" src="/image/icon@2x.png"></image>
+    </view>
+    <view class="text-view">
+      <text class="text">暂未充值</text>
     </view>
   </block>
-  <!-- <view class="list-view">
-    <view class="orders-view">
-      <view class="left-view">
-        <text class="success-text">付款成功</text>
-        <text class="time-text">2017-10-14 10:50</text>
-      </view>
-      <view class="right-view">
-        <text class="money-text">+50.00元</text>
-        <text class="wxpay-text">微信支付</text>
-      </view>
-    </view>
-    <view class="line-css"></view>
-  </view> -->
-
 </view>

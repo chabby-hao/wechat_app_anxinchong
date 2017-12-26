@@ -27,6 +27,25 @@ Page({
 
   },
 
+  checkFinish:function(finish){
+    if(finish == 1){
+      var token = wx.getStorageSync('token');
+      wx.request({
+        url: serverUrl + '/charge/lastFinish',
+        data:{token:token},
+        success:function(res){
+          if(res.data.code===200){
+            wx.showModal({
+              title: '提示',
+              content: res.data.data.content,
+              showCancel:false,
+            })
+          }
+        }
+      })
+    }
+  },
+
   onHide: function(){
     clearInterval(this.timer);
   },
@@ -43,7 +62,7 @@ Page({
         success: function (res) {
           if (res.data.code == 200) {
             if (res.data.data.task_id) {
-              //app.globalData.deviceId = res.data.data.task_id;
+              app.globalData.taskId = res.data.data.task_id;
               that.setData({
                 imageSrc: '/image/charging@2x.png'
               });
@@ -60,7 +79,8 @@ Page({
 
   },
 
-  onLoad: function () {
+  onLoad: function (option) {
+    this.checkFinish(option.finish);
     console.log('index onload...');
     checkToken(weixinLogin, checkLogin);
 

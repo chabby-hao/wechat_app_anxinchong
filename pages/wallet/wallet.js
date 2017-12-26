@@ -7,20 +7,54 @@ Page({
    * 页面的初始数据
    */
   data: {
-    balance:'0.0',
+    balance: '0.0',
+    showRefund: false,
   },
 
-  orderDetails: function(){
+  orderDetails: function () {
     console.log('order-details');
     wx.navigateTo({
       url: '../orders/orders',
     })
   },
 
-  pay:function(){
+  pay: function () {
     wx.navigateTo({
       url: '../pay/pay',
     })
+  },
+
+  refund: function () {
+    var token = app.globalData.token;
+    var that = this;
+
+    wx.showModal({
+      title: '提示',
+      content: '您的余额' + that.data.balance + '元，确定退款吗？',
+      success: function (data) {
+        if (data.confirm) {
+          wx.request({
+            url: serverUrl + '/user/refund',
+            data: { token: token },
+            success: function (res) {
+              if (res.data.code === 200) {
+                that.setData({
+                  balance:'0.0',
+                })
+                //退款提交成功
+                wx.showToast({
+                  title: '退款提交成功',
+                })
+              }
+            }
+          })
+        } else {
+          //取消退款
+        }
+      }
+    })
+
+
   },
 
   /**
@@ -32,14 +66,20 @@ Page({
     var token = app.globalData.token;
     wx.request({
       url: serverUrl + '/user/balance',
-      data:{token:token},
-      dataType:"json",
-      success:function(res){
-        if(res.data.code==200){
-          if(res.data.data.balance){
+      data: { token: token },
+      dataType: "json",
+      success: function (res) {
+        if (res.data.code == 200) {
+          if (res.data.data.balance) {
             that.setData({
-              balance:res.data.data.balance
+              balance: res.data.data.balance,
             })
+            if(res.data.data.balance > 0){
+              that.setData({
+                showRefund: true,
+              })
+            }
+
           }
         }
       }
@@ -50,28 +90,28 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -85,13 +125,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

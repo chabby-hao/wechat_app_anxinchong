@@ -1,6 +1,6 @@
 <view class="beijing">
-  <view class="title title-address">万和家园小区充电桩1号口</view>
-  <view class="title title-number">编号：123456</view>
+  <view class="title title-address">{{address}}</view>
+  <view class="title title-number">{{addressNumber}}</view>
   <scroll-view scroll-left="{{left}}" bindtap="untouch" bindtouchmove='untouch' bindtouchcancel='untouch' bindtouchend='untouch' class="scroll-view" scroll-x="{{scroll_x}}" scroll-with-animation bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
     <view class="left scroll-view-item_H">
       <image class="scroll-image {{active1}}" src="/image/max@2x.png"></image>
