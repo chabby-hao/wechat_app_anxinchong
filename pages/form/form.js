@@ -4,8 +4,8 @@ const serverUrl = require('../../config').serverUrl;
 const app = getApp();
 Page({
   data: {
-    address:'',
-    addressNumber:'',
+    address: '',
+    addressNumber: '',
     // items: [
     //   { value: '0', name: '充满', checked: true },
     //   { value: '3', name: '3小时', checked: false },
@@ -13,7 +13,7 @@ Page({
     //   { value: '1', name: '1小时', checked: false },
     // ],
     deviceId: null,
-    taskId:null,
+    taskId: null,
     reportSubmit: true,//获取formId
     scroll_x: true,
     leftTo: 0,
@@ -22,8 +22,11 @@ Page({
     active2: '',
     active3: '',
     active4: '',
-    mode:0,//0=充满
+    mode: 0,//0=充满
     timer: null,
+    loading: false,
+    disabled: false,
+    timeInterval: null,
   },
 
   upper: function (e) {
@@ -85,20 +88,20 @@ Page({
     };
     if (n == 1) {
       data.active1 = 'active';
-      data.mode=0;
+      data.mode = 0;
     } else if (n == 2) {
       data.active2 = 'active';
-      data.mode=1;
+      data.mode = 1;
     } else if (n == 3) {
       data.active3 = 'active';
-      data.mode=2;
+      data.mode = 2;
     } else if (n == 4) {
       data.active4 = 'active';
-      data.mode=4;
+      data.mode = 4;
     }
     this.setData(data);
   },
-  
+
   onLoad: function (option) {
     console.log(option);
     var that = this;
@@ -108,13 +111,13 @@ Page({
       deviceId: deviceId,
     });
     wx.request({
-      url: serverUrl +'/charge/deviceAddress',
-      data:{token:token,device_id:deviceId},
-      success:function(res){
-        if(res.data.code===200){
+      url: serverUrl + '/charge/deviceAddress',
+      data: { token: token, device_id: deviceId },
+      success: function (res) {
+        if (res.data.code === 200) {
           that.setData({
-            address:res.data.data.address,
-            addressNumber:res.data.data.address_number,
+            address: res.data.data.address,
+            addressNumber: res.data.data.address_number,
           });
         }
       }
@@ -123,6 +126,7 @@ Page({
 
   formSubmit: function (e) {
     console.log(e.detail);
+    var that = this;
     //mode 为单位为小时，0为充满
     //var mode = e.detail.value.mode;
     var mode = this.data.mode;
@@ -140,12 +144,74 @@ Page({
         if (res.data.code === 200) {
           app.globalData.deviceId = deviceId;
           app.globalData.taskId = res.data.data.task_id;
-          wx.redirectTo({
-            url: '../charging/charging',
+          wx.showModal({
+            title: '提示',
+            content: '30秒之后盒盖充电，请您检查插头是否插好',
+            showCancel: false,
+            confirmText: "知道了",
           })
+          that.setData({
+            loading: true,
+            disabled: true,
+          });
+          //此处不跳转
+          // wx.redirectTo({
+          //   url: '../charging/charging',
+          // })
         }
       }
     })
     console.log('form发生了submit事件，携带数据为：', e.detail)
   },
+
+  refresh: function () {
+    var that = this;
+    var timeInterval = that.data.timeInterval;
+    var globalData = app.globalData;
+    console.log(globalData);
+    var token = globalData.token;
+    var refreshMins = function () {
+      wx.request({
+        url: serverUrl + '/charge/chargingTime',
+        data: { token: token },
+        success: function (res) {
+          if (res.data.code === 200) {
+            var state = res.data.data.status;
+            console.log('charge state . ' + state);
+            if (state === 0) {
+              //充电中
+              wx.redirectTo({
+                url: '../charging/charging',
+              })
+            } else if (state === 3) {
+              //初始化任务，但还未通电
+            } else {
+              //已充电完成，直接跳首页
+              wx.reLaunch({
+                url: '../index/index',
+              })
+            }
+
+          }
+        }
+      })
+    }
+    timeInterval = setInterval(function () {
+      refreshMins();
+    }, 2000);
+    refreshMins();
+    that.setData({
+      timeInterval: timeInterval,
+    })
+  },
+
+  onShow: function () {
+    clearInterval(this.data.timeInterval);
+    this.refresh();
+  },
+
+  onHide: function () {
+    clearInterval(this.data.timeInterval);
+  }
+
 })

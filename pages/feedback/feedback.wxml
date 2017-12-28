@@ -1,0 +1,11 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="beijing center">
+  <form bindsubmit="formSubmit" class="form">
+    <textarea name="content" placeholder="请输入您的反馈意见" placeholder-class="placeholder-class" class="textarea">
+    </textarea>
+
+    <button form-type='submit' class='submit-bt'>
+      <image class="img" src="/image/feedback@2x.png"></image>
+    </button>
+  </form>
+</view>

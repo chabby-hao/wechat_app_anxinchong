@@ -1,6 +1,9 @@
 /**index.wxss**/
-page{
+
+page {
+  min-height: 100%;
   height: 100%;
+  position: relative;
 }
 
 .help-image {
@@ -15,23 +18,47 @@ page{
 }
 
 .charge-view {
-  height: 50%;
-  padding-top: 288rpx;
+  padding-bottom: 164rpx;
+  margin: auto;
   position: relative;
 }
 
-.charge-image{
-  width:374rpx;
-  height:374rpx;
+.charge-image {
+  width: 480rpx;
+  height: 480rpx;
 }
 
-.user-view{
-   /* margin-top:120rpx;  */
+.user-view {
+  /* margin-top:120rpx;  */
   position: absolute;
   bottom: 380rpx;
-  width:100%;
-  height:122rpx;
+  width: 100%;
+  height: 122rpx;
   text-align: center;
 }
 
+.user-view2 {
+  position: absolute;
+  bottom: 72rpx;
+  width: 100%;
+}
 
+.text {
+  font-size: 36rpx;
+  display: inline-block;
+}
+
+.left-text {
+  width:357rpx;
+  text-align: center;
+}
+
+.right-text {
+  width:357rpx;
+  text-align: center;
+}
+
+.middle-text{
+  width:36rpx;
+  text-align: center;
+}

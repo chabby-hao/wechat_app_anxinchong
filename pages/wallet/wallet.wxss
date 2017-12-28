@@ -11,6 +11,7 @@ page{
 
 .balance-label-text {
   font-size: 30rpx;
+  font-weight: bold;
 }
 
 .balance-icon{

@@ -1,9 +1,11 @@
 /* pages/help/help.wxss */
-
+.beijing{
+  height: 100%;
+}
 
 .swiper {
   padding-top:300rpx;
-  height:732rpx;
+  height:66%;
   width:100%;
   text-align: center;
 }

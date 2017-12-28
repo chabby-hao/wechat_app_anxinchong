@@ -1,0 +1,30 @@
+/* pages/feedback/feedback.wxss */
+.beijing{
+  min-height: 100%;
+}
+
+.textarea{
+  margin: 100rpx auto 0 auto;
+  width:514rpx;
+  height: 420rpx;
+  border: 2rpx solid white;
+  border-radius: 40rpx;
+  padding: 46rpx;
+  color:white;
+}
+
+.placeholder-class{
+  color:rgba(255, 255, 255, 0.6);
+}
+
+.submit-bt{
+  background-color: transparent;
+  border: none;
+  height: auto;
+  margin-top: 80rpx;
+}
+
+.img{
+  width:626rpx;
+  height: 96rpx;
+}

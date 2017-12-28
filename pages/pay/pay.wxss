@@ -23,8 +23,8 @@
 }
 
 .active{
-  background-color: #fff;
-  color:#000;
+  background-color: #e5ffe9;
+  color:#4e4e4e;
 }
 
 .pay-view{

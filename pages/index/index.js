@@ -21,8 +21,8 @@ Page({
 
   onShow: function () {
     var b = wx.getSystemInfoSync();
-    var top = b.windowHeight * 0.2 * 2;
-    var bottom = b.windowHeight * 0.2 * 2;
+    var top = b.windowHeight * 0.2;
+    var bottom = b.windowHeight * 0.2;
     //console.log(b);
     this.setData({
       top: top,
@@ -92,6 +92,15 @@ Page({
 
   onLoad: function (option) {
     this.checkFinish(option.finish);
+
+    if(option.fail==1){
+      wx.showModal({
+        title: '提示',
+        content: '充电未开始，请检查',
+        showCancel:false,
+      })
+    }
+
     console.log('index onload...');
     checkToken(weixinLogin, checkLogin);
 

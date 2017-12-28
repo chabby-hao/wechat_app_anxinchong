@@ -1,4 +1,7 @@
 /* pages/charging/charging.wxss */
+page{
+  min-height: 1200rpx;
+}
 
 .yuanhuan {
   position: relative;
@@ -35,10 +38,10 @@
 }
 
 .fenzhong-text {
-  top:192rpx;
+  top:210rpx;
   /* margin-top: -424rpx; *//* top:30rpx; */
   color: #fff;
-  font-size: 200rpx;
+  font-size: 180rpx;
   font-weight: 100;
   width: 100%;
   text-align: center;
@@ -91,6 +94,7 @@
 .title1{
   margin-top: 140rpx;
   font-size: 30rpx;
+  font-weight: bold;
 }
 
 .title2{

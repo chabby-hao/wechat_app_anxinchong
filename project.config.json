@@ -82,6 +82,18 @@
 					"name": "order",
 					"pathName": "pages/orders/orders",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "feedback",
+					"pathName": "pages/feedback/feedback",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "form",
+					"pathName": "pages/form/form",
+					"query": ""
 				}
 			]
 		}

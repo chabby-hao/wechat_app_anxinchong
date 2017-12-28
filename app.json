@@ -3,8 +3,6 @@
     "pages/index/index",
     "pages/help/help",
     "pages/charging/charging",
-    "pages/charge_ok/charge_ok",
-    "pages/charge_ab/charge_ab",
     "pages/charge_history/charge_history",
     "pages/pay/pay",
     "pages/form/form",
@@ -14,8 +12,8 @@
     "pages/user/user",
     "pages/orders/orders",
     "pages/no_orders/no_orders",
-    "pages/no_charges/no_charges"
-    
+    "pages/no_charges/no_charges",
+    "pages/feedback/feedback"
   ],
   "window": {
     "backgroundTextStyle": "light",

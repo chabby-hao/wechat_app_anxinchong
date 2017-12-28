@@ -12,6 +12,7 @@ Page({
     verify_code: '',
     buttonDisable: false,
     url:'',
+    code_text:'获取验证码',
   },
   bindPhoneInput: function (e) {
     this.setData({
@@ -80,6 +81,7 @@ Page({
       wx.showToast({
         icon: 'loading',
         title: '验证码有误',
+        image: '/image/info@2x.png',
         duration:1000,
       })
       return false;
@@ -118,10 +120,12 @@ Page({
   checkPhone: function(){
     var phone = this.data.phone;
     var reg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
+
     if (!reg.test(phone)) { //true
       wx.showToast({
         icon:'loading',
         title: '手机号有误',
+        image: '/image/info@2x.png',
         duration: 1000,
       });
       return false;

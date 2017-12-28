@@ -194,7 +194,7 @@ Page({
             data: { device_id: deviceId,task_id:taskId },
             success: function (res2) {
               if (res2.data.code == 200) {
-                wx.redirectTo({
+                wx.reLaunch({
                   url: '../index/index?finish=1',
                 })
               }
@@ -232,6 +232,12 @@ Page({
         }
       }
     })
+  },
+
+  feedback:function(){
+    wx.navigateTo({
+      url: '../feedback/feedback',
+    });
   },
 
   /**

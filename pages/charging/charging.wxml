@@ -30,7 +30,7 @@
   <view class="title title2">{{priceText}}</view>
 
   <view class="wufachongdian-view">
-    <text class="wufachongdian-text">无法充电？</text>
+    <text bindtap='feedback' class="wufachongdian-text">无法充电？</text>
   </view>
 
 </view>

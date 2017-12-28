@@ -1,16 +1,22 @@
 <!--index.wxml-->
 <view class="beijing center">
 
-  <view bindtap='btHelp' class="help-view">
+  <!-- <view bindtap='btHelp' class="help-view">
     <image class="help-image" mode="widthFix" src="/image/help@2x.png"></image>
-  </view>
+  </view> -->
 
-  <view style='padding-top:{{top}}rpx' bindtap='btScan' class="charge-view">
+  <view bindtap='btScan' class="charge-view">
     <image src="{{imageSrc}}" class="charge-image"></image>
   </view>
   
-  <view style='bottom:{{bottom}}rpx' class="user-view">
+  <!-- <view style='bottom:{{bottom}}px' class="user-view">
     <image style="width:120rpx;height:120rpx;" bindtap='btUser' src="/image/button_me@2x.png"></image>
+  </view> -->
+
+  <view class="user-view2">
+    <text bindtap='btUser' class='left-text text'>个人中心</text>
+    <text class='middle-text text'>|</text>
+    <text bindtap='btHelp' class='right-text text'>使用帮助</text>
   </view>
 
 </view>

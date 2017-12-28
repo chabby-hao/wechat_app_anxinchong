@@ -8,12 +8,13 @@ text{
   color:#fff;
 }
 
-input, button{
+input{
   height:80rpx;
 }
 
 button{
   background-size: 100% 100%;
+  height: auto;
 }
 
 button::after{
@@ -25,11 +26,16 @@ button::after{
   border: none;
 }
 
+.info{
+  width:40rpx;
+  height: 40rpx;
+}
+
 .line-css {
   height: 2rpx;
-  background: rgb(200, 200, 200);
+  background: #fff;
   margin: 0 30rpx;
-  opacity: 0.9;
+  opacity: 0.5;
 }
 
 .center{
@@ -61,7 +67,7 @@ button::after{
   position: relative;
 }
 page{
-  min-height: 1200rpx;
+  /* min-height: 1200rpx; */
 }
 
 .page-head{

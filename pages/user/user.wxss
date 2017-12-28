@@ -10,15 +10,15 @@ page{
 
 .userinfo-avatar {
   border: 6rpx solid rgb(143, 199, 204);
-  width: 222rpx;
-  height: 222rpx;
+  width: 210rpx;
+  height: 210rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
   margin-top: 40rpx;
   color: #fff;
-  font-size: medium;
+  /* font-size: 34rpx; */
 }
 
 .bt-view {

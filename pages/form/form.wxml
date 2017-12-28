@@ -15,10 +15,17 @@
       <image class="scroll-image {{active4}}" src="/image/4@2x.png"></image>
     </view>
   </scroll-view>
+
+
+
   <form bindsubmit="formSubmit" report-submit="{{reportSubmit}}">
     <view class="bt-view">
-      <button class="bt-touming" form-type='submit'>
-        <image class="img-charge" src="/image/start-charge@2x.png"></image>
+      <view class="tishi">
+        <image class="info" src="/image/info@2x.png"></image>
+        <text class="tishi-text">开始充电前请您确认充电器已插好充电口以及电瓶插口</text>
+      </view>
+      <button style="background-color: transparent;" loading="{{loading}}" disabled='{{disabled}}' class="charge-bt bt-touming" form-type='submit'>
+        开始充电
       </button>
     </view>
   </form>
