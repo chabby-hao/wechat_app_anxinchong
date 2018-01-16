@@ -11,14 +11,15 @@ Page({
     phone: '',
     verify_code: '',
     buttonDisable: false,
-    url:'',
-    code_text:'获取验证码',
+    loading:false,
+    url: '',
+    code_text: '获取验证码',
   },
   bindPhoneInput: function (e) {
     this.setData({
       phone: e.detail.value
     })
-    if(e.detail.value.length >= 11){
+    if (e.detail.value.length >= 11) {
 
     }
   },
@@ -29,39 +30,61 @@ Page({
     })
   },
 
-  sendVerifyCode:function(e){
-
+  sendVerifyCode: function (e) {
     var that = this;
+    that.setData({
+      buttonDisable: true,
+      loading:true,
+    })
     var phone = that.checkPhone();
-    if(!phone){
+    if (!phone) {
+      that.setData({
+        buttonDisable: false,
+        loading:false,
+      })
       return false;
     }
 
-    var c = 60;
+
     
-    var interrvalId = setInterval(function () {
-      c = c - 1;
-      that.setData({
-        code_text: c + '后重发',
-        buttonDisable: true,
-      })
-      console.log(that.data);
-      if (c == 0) {
-        clearInterval(interrvalId);
-        that.setData({
-          code_text: '获取验证码',
-          buttonDisable: false,
-        })
-      }
-    }, 1000);
 
     wx.request({
       url: serverUrl + "/user/sendMsgCode",
-      dataType: 'jsonp',
       method: 'post',
       data: { phone: phone },
       success: function (res) {
-        console.log(res)
+        if(res.data.code === 200){
+          //发送成功
+          var c = 60;
+          var t = function () {
+            c = c - 1;
+            that.setData({
+              code_text: c + '后重发',
+              loading:false,
+            })
+            if (c == 0) {
+              clearInterval(interrvalId);
+              that.setData({
+                code_text: '获取验证码',
+                buttonDisable: false,
+              })
+            };
+          }
+          var interrvalId = setInterval(function () {
+            t();
+          }, 1000);
+          t();
+          wx.showToast({
+            title: '发送成功',
+            icon:'success'
+          })
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '发送验证码失败',
+            showCancel:false,
+          })
+        }
       }
     })
 
@@ -71,18 +94,18 @@ Page({
     var that = this;
     //console.log(this.data);
     var phone = this.checkPhone();
-    if(!phone){
+    if (!phone) {
       return false;
     }
     var verify_code = this.data.verify_code;
     var reg2 = /^\d{4}$/;
-    
+
     if (!reg2.test(verify_code)) {
       wx.showToast({
         icon: 'loading',
         title: '验证码有误',
         image: '/image/info@2x.png',
-        duration:1000,
+        duration: 1000,
       })
       return false;
     }
@@ -92,7 +115,7 @@ Page({
       data: { phone: phone, verify_code: verify_code, token: app.globalData.token },
       success: function (res) {
         console.log(res);
-        if(res.data.code==200){
+        if (res.data.code == 200) {
           wx.getUserInfo({
             success: function (res2) {
               console.log(res2);
@@ -101,15 +124,15 @@ Page({
           })
           var url = that.data.url;
           urlTo(url, '../index/index');
-        }else{
+        } else {
           //登录失败
           wx.showModal({
             title: '登录失败',
             content: '请检查验证码是否填写正确',
-            showCancel:false
+            showCancel: false
           })
         }
-        
+
         // wx.navigateTo({
         //   url: '../index/index',
         // })
@@ -117,13 +140,13 @@ Page({
     })
   },
 
-  checkPhone: function(){
+  checkPhone: function () {
     var phone = this.data.phone;
     var reg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
 
     if (!reg.test(phone)) { //true
       wx.showToast({
-        icon:'loading',
+        icon: 'loading',
         title: '手机号有误',
         image: '/image/info@2x.png',
         duration: 1000,
@@ -140,7 +163,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      url:options=options.url
+      url: options = options.url
     })
   },
 

@@ -2,10 +2,10 @@
 <view class="beijing">
 
 <view class="chongzhi-view">
-  <button class="chongzhi-bt {{_num==1?'active':'none'}}" bindtap='payChoose' data-num="1" data-amount="{{defaultAmount}}">10元</button>
-  <button class="chongzhi-bt {{_num==2?'active':'none'}}" bindtap='payChoose' data-num="2" data-amount="20">20元</button>
-  <button class="chongzhi-bt {{_num==3?'active':'none'}}" bindtap='payChoose' data-num="3" data-amount="50">50元</button>
-  <button class="chongzhi-bt {{_num==4?'active':'none'}}" bindtap='payChoose' data-num="4" data-amount="100">100元</button>
+  <button class="chongzhi-bt {{_num==1?'active':'none'}}" bindtap='payChoose' data-num="1" data-amount="{{defaultAmount}}"><span class="amonut">10</span>元</button>
+  <button class="chongzhi-bt {{_num==2?'active':'none'}}" bindtap='payChoose' data-num="2" data-amount="20"><span class="amonut">20</span>元</button>
+  <button class="chongzhi-bt {{_num==3?'active':'none'}}" bindtap='payChoose' data-num="3" data-amount="50"><span class="amonut">50</span>元</button>
+  <button class="chongzhi-bt {{_num==4?'active':'none'}}" bindtap='payChoose' data-num="4" data-amount="100"><span class="amonut">100</span>元</button>
 </view>
 
 <view class="line-css"></view>

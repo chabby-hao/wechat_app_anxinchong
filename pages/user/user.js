@@ -33,7 +33,8 @@ Page({
     })
   },
   makePhoneCall: function () {
-    var phone = '123456789';
+    var phone = '4006-855-788';
+    var tel = '4006855788';
     wx.showModal({
       title: '拨打电话',
       content: '确认拨打电话' + phone + '吗？',
@@ -41,7 +42,7 @@ Page({
         if(res.confirm){
           var that = this
           wx.makePhoneCall({
-            phoneNumber: phone,
+            phoneNumber: tel,
             success: function () {
               console.log("成功拨打电话")
             }

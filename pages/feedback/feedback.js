@@ -20,7 +20,7 @@ Page({
     console.log(e.detail);
 
     var token = app.globalData.token;
-    var content = e.detail.content;
+    var content = e.detail.value.content;
 
     if(!content){
       wx.showModal({

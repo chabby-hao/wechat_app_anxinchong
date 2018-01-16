@@ -11,20 +11,20 @@
     <view class="page-section input-margin">
       <view class="wxinput_view">
         <input bindinput="bindVerifyCodeInput" placeholder-class='wxplace' class="wxinput" type="number" placeholder="输入验证码" />
-        <button class="wxinput_bt" bindtap='sendVerifyCode'>
+        <button style="background-color:transparent;" loading="{{loading}}" disabled="{{buttonDisable}}" class="wxinput_bt" bindtap='sendVerifyCode'>
           {{code_text}}
         </button>
       </view>
     </view>
- 
+
     <view class="page-section bt-margin">
-      <view class="wxbt_view">
+      <!-- <view class="wxbt_view"> -->
         <button bindtap='login' class='wxbt'>
-          <image mode="widthFix" class="img_register" src="/image/register@2x.png"></image>
+          <image class="img_register" src="/image/register@2x.png"></image>
         </button>
-      </view>
+      <!-- </view> -->
     </view>
 
-    <view class="agree-view">点击登录表示已阅读并同意</view>
+    <!-- <view class="agree-view">点击登录表示已阅读并同意</view> -->
   </view>
 </view>

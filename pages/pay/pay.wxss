@@ -8,6 +8,7 @@
 }
 
 .chongzhi-bt{
+  font-family: number;
   margin-left: 118rpx;
   float:left;
   width:196rpx;
@@ -20,6 +21,10 @@
   color:#fff;
   background-color: transparent;
   border: 2rpx solid #fff;
+}
+
+.amonut{
+  font-size: 48rpx;
 }
 
 .active{

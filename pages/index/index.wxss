@@ -18,14 +18,14 @@ page {
 }
 
 .charge-view {
-  padding-bottom: 164rpx;
+  padding-bottom: 318rpx;
   margin: auto;
   position: relative;
 }
 
 .charge-image {
-  width: 480rpx;
-  height: 480rpx;
+  width: 447rpx;
+  height: 447rpx;
 }
 
 .user-view {
@@ -49,16 +49,18 @@ page {
 }
 
 .left-text {
-  width:357rpx;
+  width: 317rpx;
   text-align: center;
+  margin-left: 40rpx;
 }
 
 .right-text {
-  width:357rpx;
+  width: 317rpx;
   text-align: center;
+  margin-right: 40rpx;
 }
 
-.middle-text{
-  width:36rpx;
+.middle-text {
+  width: 36rpx;
   text-align: center;
 }

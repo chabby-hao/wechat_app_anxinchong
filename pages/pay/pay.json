@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "充值金额"
+  "navigationBarTitleText": "充值金额",
+  "disableScroll": true
 }

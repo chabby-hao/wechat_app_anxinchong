@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "我的充电"
+  "navigationBarTitleText": "我的充电",
+  "disableScroll": true
 }

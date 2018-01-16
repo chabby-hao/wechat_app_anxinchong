@@ -9,8 +9,8 @@
 
 var config = {
 
-  serverUrl:`https://anxinchong.longlongwalk.com/api`,
-  domainUrl:`https://anxinchong.longlongwalk.com`
+  serverUrl:`https://anxinchong.vipcare.com/api`,
+  domainUrl:`https://anxinchong.vipcare.com`
 
 };
 

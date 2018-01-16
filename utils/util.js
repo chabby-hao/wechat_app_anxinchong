@@ -48,52 +48,6 @@ const weixinLogin = function () {
   })
 };
 
-// const checkToken = function (wxlogin, cklogin) {
-
-//   var serverUrl = require('../config').serverUrl
-
-//   var token = wx.getStorageSync('token');
-//   console.log(token);
-//   var app = getApp();
-//   if (token) {
-//     app.globalData.token = token;
-//     wx.checkSession({
-//       success: function () {
-//         //session 未过期，并且在本生命周期一直有效
-//         // wxlogin();
-
-//         wx.request({
-//           url: serverUrl + '/user/checkToken',
-//           data: { token: token },
-//           method: 'POST',
-//           success: function (res) {
-//             if (res.data.code == 200) {
-//               //cklogin();
-//             } else {
-//               //wxlogin();
-//               //cklogin();
-//             }
-//           },
-//           fail: function () {
-//             wxlogin();
-//             //cklogin();
-//           }
-//         })
-
-
-//       },
-//       fail: function () {
-//         //登录态过期
-//         wxlogin();
-//         //cklogin();
-//       }
-//     })
-//   } else {
-//     wxlogin();
-//     cklogin();
-//   }
-// }
-
 const checkToken = function (wxlogin) {
   var serverUrl = require('../config').serverUrl
 
@@ -186,7 +140,7 @@ const urlTo = function (url, defaultUrl) {
       }
     })
   } else {
-    wx.reLaunch({
+    wx.redirectTo({
       url: defaultUrl,
     })
   }
@@ -216,20 +170,6 @@ const btScan = function () {
           } else {
             wx.scanCode({
               success: function (res) {
-
-                // wx.showModal({
-                //   title: 'test',
-                //   content: res.result,
-                //   success:function(re2){
-                //     if(re2.confirm){
-                //       if (res.result == 'https://mp.weixin.qq.com/a/~~tuDIFev1Mmg~bqoemL9d3N9KlTD0w5qoQg~~'){
-                //         wx.showToast({
-                //           title: 'success',
-                //         })
-                //       }
-                //     }
-                //   }
-                // })
                 var url = res.result;
                 console.log(res.result);
 
@@ -243,21 +183,6 @@ const btScan = function () {
                       wx.navigateTo({
                         url: '../form/form?device_id=' + deviceId,
                       })
-                      //var obj = JSON.parse(res.result);
-                      //console.log(obj);
-                      //var deviceId = obj.device_id;
-                      // wx.showModal({
-                      //   title: '编号',
-                      //   content: '',
-                      //   showCancel: true,
-                      //   success: function (res) {
-                      //     if (res.confirm) {
-                      //       wx.navigateTo({
-                      //         url: '../form/form?device_id=' + deviceId,
-                      //       })
-                      //     }
-                      //   }
-                      // })
                     }
                   },
                 })

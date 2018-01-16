@@ -7,7 +7,7 @@
   <image class="charging-gif" src="/image/charging.png" animation="{{animationData3}}"></image>
   <image class="charging-gif" src="/image/charging.png" animation="{{animationData4}}"></image>
 
-  <view class="{{minsClass}}">{{mins}}</view>
+   <view class="{{minsClass}}">{{mins}}</view> 
   <view class="yuanhuan center">
     <image class="yuanhuan-img" src="/image/zhuangtai@2x.png"></image>
   </view>

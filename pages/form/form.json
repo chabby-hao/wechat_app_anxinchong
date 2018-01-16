@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "模式选择"
+  "navigationBarTitleText": "模式选择",
+  "disableScroll": true
 }

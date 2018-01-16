@@ -68,11 +68,12 @@ button::after {
   background-color: transparent;
   border: none;
   padding: 0;
+  width:100%;
 }
 
 .img_register {
-  width: 626rpx;
-  height: 96rpx;
+  width: 634rpx;
+  height: 102rpx;
 }
 
 .input-margin {
@@ -80,6 +81,7 @@ button::after {
 }
 
 .bt-margin {
+  width:634rpx;
   margin-top: 54rpx;
 }
 

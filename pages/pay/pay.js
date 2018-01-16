@@ -8,7 +8,7 @@ Page({
    */
   data: {
     currentAmount: 0,
-    defaultAmount: 0.01,
+    defaultAmount: 10,
     _num: 1,
   },
 

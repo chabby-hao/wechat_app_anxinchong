@@ -15,7 +15,7 @@ page{
 }
 
 .balance-icon{
-  font-size: 88rpx;
+  font-size: 60rpx;
 }
 
 .balance-view {
@@ -24,8 +24,9 @@ page{
 }
 
 .balance-text {
-  font-size: 168rpx;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 200rpx;
+   font-family: 'number','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+   /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  */
 }
 
 .bt-view {

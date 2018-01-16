@@ -61,6 +61,10 @@ Page({
     clearInterval(this.timer);
   },
 
+  onUnload:function(){
+    clearInterval(this.timer);
+  },
+
   checkCharging: function () {
     console.log('index checkCharging....');
     var that = this;
@@ -136,6 +140,13 @@ Page({
     wx.navigateTo({
       url: '../help/help',
     })
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 
 })

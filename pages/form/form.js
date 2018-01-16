@@ -154,6 +154,7 @@ Page({
             loading: true,
             disabled: true,
           });
+          that.refresh();
           //此处不跳转
           // wx.redirectTo({
           //   url: '../charging/charging',
@@ -178,13 +179,20 @@ Page({
           if (res.data.code === 200) {
             var state = res.data.data.status;
             console.log('charge state . ' + state);
-            if (state === 0) {
+            if (state === 0 || state === 1) {
               //充电中
+              clearInterval(that.data.timeInterval);
               wx.redirectTo({
                 url: '../charging/charging',
               })
             } else if (state === 3) {
               //初始化任务，但还未通电
+            } else if (state === 4) {
+              //初始化任务，未充电，箱子已关闭
+              clearInterval(that.data.timeInterval);
+              wx.reLaunch({
+                url: '../index/index?fail=1',
+              })
             } else {
               //已充电完成，直接跳首页
               wx.reLaunch({
@@ -206,11 +214,15 @@ Page({
   },
 
   onShow: function () {
-    clearInterval(this.data.timeInterval);
-    this.refresh();
+    // clearInterval(this.data.timeInterval);
+    // this.refresh();
   },
 
   onHide: function () {
+    // clearInterval(this.data.timeInterval);
+  },
+
+  onUnload: function () {
     clearInterval(this.data.timeInterval);
   }
 

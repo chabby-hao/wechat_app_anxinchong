@@ -8,7 +8,7 @@ Page({
    */
   data: {
     charging: true,
-    mins: '00',//00
+    mins: '0',//00
     minsClass: 'fenzhong-text',//fenzhong-text=分钟,ab-text=异常
     timeInterval: 0,
     wxCanvas: null,// 注意这里 需要创建一个对象来接受wxDraw对象
@@ -26,7 +26,7 @@ Page({
     this.setData({
       timer: null,
       charging: true,
-      mins: '00',
+      mins: '0',
       minsClass: 'fenzhong-text',
     })
   },
@@ -77,7 +77,7 @@ Page({
               //充电完成
               var taskId = res.data.data.task_id;
               clearInterval(timeInterval);
-              wx.navigateBack({
+              wx.reLaunch({
                 url: '../index/index?finish=1',
               })
             } else if (state === 3) {

@@ -10,8 +10,8 @@ page{
 
 .userinfo-avatar {
   border: 6rpx solid rgb(143, 199, 204);
-  width: 210rpx;
-  height: 210rpx;
+  width: 190rpx;
+  height: 190rpx;
   border-radius: 50%;
 }
 
@@ -35,9 +35,10 @@ page{
   margin:0 auto;
   background-color: transparent;
   border:none;
-  margin-bottom: 30rpx;
+  margin-bottom: 24rpx;
   /* align-items: center; */
 }
+
 
 .my-text{
   color:#fff;
@@ -48,7 +49,7 @@ button::after{
 }
 
 .invite-view{
-  margin-top: 80rpx;
+  margin-top: 70rpx;
   margin-bottom: 56rpx;
 }
 

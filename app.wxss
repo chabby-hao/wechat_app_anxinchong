@@ -1,4 +1,9 @@
 /**app.wxss**/
+@font-face{
+  font-family: 'number';
+  src: url('https://anxinchong.vipcare.com/mini-font/number.ttf');
+}
+
 page{
     font-family:'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
     height:100%;
