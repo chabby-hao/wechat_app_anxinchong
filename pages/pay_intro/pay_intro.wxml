@@ -1,0 +1,14 @@
+<!--pages/pay_intro/pay_intro.wxml-->
+<view class="beijing">
+  <view class="agree-view">
+    <view class='title'>账户余额</view>
+<text class="text">账户余额仅可用于支付充电费用，不可用于转移或转赠。</text>
+
+<view class='title'>支付顺序</view>
+<text class="text">如果充值时除充值本金外还获得了额外的赠送金额，支付时将优先扣除充值本金，直到全部本金已用完，才会开始扣除赠送金额。</text>
+
+<view class='title'>余额退还</view>
+<text class="text">您剩余的充值本金可以在我的钱包页面点击退款，将在7个工作日内按原路退回，退还时将清空所有充值赠送金额。 </text>
+
+  </view>
+</view>

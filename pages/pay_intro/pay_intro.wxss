@@ -1,0 +1,21 @@
+/* pages/pay_intro/pay_intro.wxss */
+.agree-view{
+  padding: 40rpx;
+  padding-top:0;
+  text-align: left;
+  color:#fefefe;
+  font-size: 24rpx;
+}
+
+.title{
+  letter-spacing:2rpx;
+  font-size:30rpx;
+  padding-top: 30rpx;
+  font-weight: bold;
+}
+
+.text{
+  /* text-indent: 30rpx; */
+  letter-spacing:2rpx;
+   /* padding-left: 40rpx;  */
+}
