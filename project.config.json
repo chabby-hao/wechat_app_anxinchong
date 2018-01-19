@@ -94,6 +94,12 @@
 					"name": "form",
 					"pathName": "pages/form/form",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pay_intro",
+					"pathName": "pages/pay_intro/pay_intro",
+					"query": ""
 				}
 			]
 		}

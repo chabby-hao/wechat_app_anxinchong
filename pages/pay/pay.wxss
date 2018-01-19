@@ -50,3 +50,42 @@
   width:628rpx;
   height: 96rpx;
 }
+
+.agree-view{
+  text-align: center;
+  color:#fefefe;
+  font-size: 26rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  vertical-align: bottom;
+  margin-bottom: 20rpx;
+}
+
+.radio{
+  transform:scale(0.7);
+  font-size: 28rpx;
+  padding: 0;
+  /* background-color: #e5ffe9;
+  color:#e5ffe9; */
+}
+
+button[disabled]{
+  opacity: 0.5
+}
+
+.text-intro{
+  line-height: 28rpx;
+  vertical-align: middle;
+}
+
+.checkbox-group{
+  display: inline-block;
+}
+
+.img{
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}

@@ -1,19 +1,30 @@
 <!--pages/chongzhi/chongzhi.wxml-->
 <view class="beijing">
 
-<view class="chongzhi-view">
-  <button class="chongzhi-bt {{_num==1?'active':'none'}}" bindtap='payChoose' data-num="1" data-amount="{{defaultAmount}}"><span class="amonut">10</span>元</button>
-  <button class="chongzhi-bt {{_num==2?'active':'none'}}" bindtap='payChoose' data-num="2" data-amount="20"><span class="amonut">20</span>元</button>
-  <button class="chongzhi-bt {{_num==3?'active':'none'}}" bindtap='payChoose' data-num="3" data-amount="50"><span class="amonut">50</span>元</button>
-  <button class="chongzhi-bt {{_num==4?'active':'none'}}" bindtap='payChoose' data-num="4" data-amount="100"><span class="amonut">100</span>元</button>
-</view>
+  <view class="chongzhi-view">
+    <button class="chongzhi-bt {{_num==1?'active':'none'}}" bindtap='payChoose' data-num="1" data-amount="{{defaultAmount}}">
+      <span class="amonut">10</span>元</button>
+    <button class="chongzhi-bt {{_num==2?'active':'none'}}" bindtap='payChoose' data-num="2" data-amount="20">
+      <span class="amonut">20</span>元</button>
+    <button class="chongzhi-bt {{_num==3?'active':'none'}}" bindtap='payChoose' data-num="3" data-amount="50">
+      <span class="amonut">50</span>元</button>
+    <button class="chongzhi-bt {{_num==4?'active':'none'}}" bindtap='payChoose' data-num="4" data-amount="100">
+      <span class="amonut">100</span>元</button>
+  </view>
 
-<view class="line-css"></view>
+  <view class="line-css"></view>
 
-<view class="pay-view">
-  <button bindtap='payNow' class="pay-bt">
-    <image class="pay-image" src="/image/pay@2x.png"></image>
-  </button>
-</view>
+  <view class="pay-view">
+    <view class="agree-view">
+    <image bindtap='xuanzhong' class="img" src="{{img}}"></image>
+    <!-- <checkbox-group class='checkbox-group' bindchange="checkbox">
+      <checkbox class="radio" value="cb" checked="true" />
+    </checkbox-group> -->
+    <text class='text-intro' bindtap='intro'>点击支付即同意《充值说明》</text>
+    </view>
+    <button style="background-color:transparent;" disabled='{{disabled}}' bindtap='payNow' class="pay-bt">
+      <image class="pay-image" src="/image/pay@2x.png"></image>
+    </button>
+  </view>
 
 </view>

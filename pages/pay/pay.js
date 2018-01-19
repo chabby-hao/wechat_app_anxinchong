@@ -9,8 +9,43 @@ Page({
   data: {
     currentAmount: 0,
     defaultAmount: 10,
+    disabled:false,
+    img: '/image/xuanzhong@2x.png',//image/noxuanzhong@2x.png
     _num: 1,
   },
+
+  xuanzhong:function(){
+    if(this.data.disabled){
+      this.setData({
+        disabled:false,
+        img:'/image/xuanzhong@2x.png',
+      })
+    }else{
+      this.setData({
+        disabled:true,
+        img:'image/noxuanzhong@2x.png',
+      })
+    }
+  },
+
+  intro: function(){
+    wx.navigateTo({
+      url: '/pages/pay_intro/pay_intro',
+    })
+  },
+
+  // checkbox:function(e){
+  //   console.log(e);
+  //   if(e.detail.value.length>0){
+  //     this.setData({
+  //       disabled:false,
+  //     })
+  //   }else{
+  //     this.setData({
+  //       disabled:true,
+  //     })
+  //   }
+  // },
 
   payChoose: function (obj) {
     var data = obj.currentTarget.dataset;

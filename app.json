@@ -13,13 +13,16 @@
     "pages/orders/orders",
     "pages/no_orders/no_orders",
     "pages/no_charges/no_charges",
-    "pages/feedback/feedback"
+    "pages/feedback/feedback",
+    "pages/pay_intro/pay_intro"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#1c939f",
     "navigationBarTitleText": "安心充",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "1c939f",
+    "enablePullDownRefresh": false
   },
   "debug": true
 }
