@@ -167,6 +167,9 @@ Page({
 
   refresh: function () {
     var that = this;
+    if(!that.data.loading){
+      return false;
+    }
     var timeInterval = that.data.timeInterval;
     var globalData = app.globalData;
     console.log(globalData);
@@ -195,6 +198,7 @@ Page({
               })
             } else {
               //已充电完成，直接跳首页
+              clearInterval(that.data.timeInterval);
               wx.reLaunch({
                 url: '../index/index',
               })
@@ -214,12 +218,12 @@ Page({
   },
 
   onShow: function () {
-    // clearInterval(this.data.timeInterval);
-    // this.refresh();
+     clearInterval(this.data.timeInterval);
+     this.refresh();
   },
 
   onHide: function () {
-    // clearInterval(this.data.timeInterval);
+     clearInterval(this.data.timeInterval);
   },
 
   onUnload: function () {

@@ -23,7 +23,7 @@
     <text class='text-intro' bindtap='intro'>点击支付即同意《充值说明》</text>
     </view>
     <button style="background-color:transparent;" disabled='{{disabled}}' bindtap='payNow' class="pay-bt">
-      <image class="pay-image" src="/image/pay@2x.png"></image>
+      <image class="pay-image" src="/image/paynow@2x.png"></image>
     </button>
   </view>
 

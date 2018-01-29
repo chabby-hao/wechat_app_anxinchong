@@ -15,7 +15,8 @@ Page({
     indicatorDots: true,
     autoplay: false,
     interval: 5000,
-    duration: 1000
+    duration: 300,
+    circular:false,
   },
 
   /**

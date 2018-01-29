@@ -10,6 +10,7 @@ Page({
     balance: '0.00',
     showRefund: false,
     hasRefund:false,
+    present: '0.00',
   },
 
   orderDetails: function () {
@@ -26,11 +27,10 @@ Page({
   },
 
   discount:function(){
-    wx.showModal({
-      title: '提示',
-      content: '敬请期待',
-      showCancel:false,
+    wx.navigateTo({
+      url: '../coupon/coupon',
     })
+    
   },
 
   refund: function () {
@@ -84,6 +84,7 @@ Page({
           if (res.data.data.balance) {
             that.setData({
               balance: res.data.data.balance,
+              present:res.data.data.present,
             })
             if(res.data.data.balance > 0){
               that.setData({

@@ -9,6 +9,12 @@
     <text class="balance-text">{{balance}}</text>
   </view>
 
+  <view class="present-view">
+    <text class='present1'>赠送金额：</text>
+    <text class='present2'>￥</text>
+    <text class='presnet3'>{{present}}</text>
+  </view>
+
   <view class="line-css"></view>
 
   <view class="bt-view">

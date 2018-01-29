@@ -64,3 +64,25 @@ page {
   width: 36rpx;
   text-align: center;
 }
+
+.activity {
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.3); */
+  position: absolute;
+  z-index: 9999999;
+}
+
+.huodongimg {
+  width: 90%;
+  margin-top: 20rpx;
+}
+
+.guanbi-view {
+  margin-top: -60rpx;
+}
+
+.guanbiimg {
+  width: 56rpx;
+  z-index: 99999999999;
+}

@@ -23,7 +23,7 @@ Page({
     }else{
       this.setData({
         disabled:true,
-        img:'image/noxuanzhong@2x.png',
+        img:'/image/noxuanzhong@2x.png',
       })
     }
   },

@@ -100,6 +100,24 @@
 					"name": "pay_intro",
 					"pathName": "pages/pay_intro/pay_intro",
 					"query": ""
+				},
+				{
+					"id": 13,
+					"name": "t",
+					"pathName": "pages/index/index",
+					"query": "cardId=1010"
+				},
+				{
+					"id": -1,
+					"name": "fuli",
+					"pathName": "pages/coupon/coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "help",
+					"pathName": "pages/help/help",
+					"query": ""
 				}
 			]
 		}

@@ -10,6 +10,7 @@ var checkLogin = require('../../utils/util.js').checkLogin;
 var btScan = require('../../utils/util.js').btScan;
 var urlTo = require('../../utils/util.js').urlTo;
 const serverUrl = require('../../config').serverUrl;
+var getCard = require('../../utils/util.js').getCard;
 Page({
   data: {
     imageSrc: '/image/index@2x.png',//未充电 ,正在冲:'/image/charging@2x.png',
@@ -17,6 +18,50 @@ Page({
 
     top: 288,
     bottom: 190,
+
+    hide: true,
+  },
+
+  close:function(){
+    this.setData({
+      hide:true,
+    })
+  },
+
+  onReady: function () {
+    var that = this;
+    if (!app.globalData.checkActivity) {
+      wx.request({
+        url: serverUrl + '/activity/isOpenPaySend',
+        success: function (res) {
+          if (res.data.code === 200) {
+            //已经检测过
+            app.globalData.checkActivity = true;
+            if (res.data.data.open == 1) {
+              console.log(res.data)
+              that.setData({
+                hide: false,
+              })
+            }
+          }
+        }
+      })
+    }
+
+  },
+
+  pay: function () {
+    var app = getApp();
+    console.log(app.globalData);
+    if (!app.globalData.isLogin) {
+      wx.navigateTo({
+        url: '../login/login?url=index',
+      })
+    } else {
+      wx.navigateTo({
+        url: '../pay/pay',
+      })
+    }
   },
 
   onShow: function () {
@@ -61,7 +106,7 @@ Page({
     clearInterval(this.timer);
   },
 
-  onUnload:function(){
+  onUnload: function () {
     clearInterval(this.timer);
   },
 
@@ -97,11 +142,15 @@ Page({
   onLoad: function (option) {
     this.checkFinish(option.finish);
 
-    if(option.fail==1){
+    if(option.cardId){
+      app.globalData.cardId = option.cardId;
+    }
+
+    if (option.fail == 1) {
       wx.showModal({
         title: '提示',
         content: '充电未开始，请检查',
-        showCancel:false,
+        showCancel: false,
       })
     }
 

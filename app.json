@@ -14,7 +14,8 @@
     "pages/no_orders/no_orders",
     "pages/no_charges/no_charges",
     "pages/feedback/feedback",
-    "pages/pay_intro/pay_intro"
+    "pages/pay_intro/pay_intro",
+    "pages/coupon/coupon"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -31,6 +31,14 @@ button::after{
   border: none;
 }
 
+.show{
+  display: block;
+}
+
+.hide{
+  display: none;
+}
+
 .info{
   width:40rpx;
   height: 40rpx;

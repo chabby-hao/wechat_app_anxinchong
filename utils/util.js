@@ -33,6 +33,17 @@ const weixinLogin = function () {
             var data = res2.data.data;
             var token = data.token;
             app.globalData.token = token;
+            if (res2.data.data.phone) {
+              app.globalData.phone = res2.data.data.phone;
+              app.globalData.isLogin = true;
+
+              getCard();
+            }
+            if (app.globalData.cardId && !app.globalData.isLogin) {
+              wx.redirectTo({
+                url: '/pages/login/login',
+              })
+            }
 
             wx.setStorage({
               key: 'token',
@@ -68,6 +79,7 @@ const checkToken = function (wxlogin) {
             if (res.data.code == 200) {
               app.globalData.phone = res.data.data.phone;
               app.globalData.isLogin = true;
+              getCard();
               wx.getUserInfo({
                 success: function (res2) {
                   console.log('wxapi getuserinfo');
@@ -76,9 +88,9 @@ const checkToken = function (wxlogin) {
                 }
               })
             } else {
-              wxlogin();
-              app.globalData.token = null;
               //token效验失败逻辑处理...
+              app.globalData.token = null;
+              wxlogin();
             }
           },
         })
@@ -97,6 +109,28 @@ const checkToken = function (wxlogin) {
   }
 }
 
+const getCard = function () {
+  var app = getApp();
+  var token = app.globalData.token;
+  var card = app.globalData.cardId;
+  if (token && card) {
+    wx.request({
+      url: serverUrl + '/activity/getCard',
+      data: { token: token, card: card },
+      success: function (res) {
+        if (res.data.code == 200) {
+          wx.showModal({
+            title: '提示',
+            content: res.data.data.toast,
+            showCancel: false,
+          })
+        }
+      }
+    })
+  }
+
+}
+
 const checkLogin = function () {
   var serverUrl = require('../config').serverUrl
   var token = wx.getStorageSync('token');
@@ -112,6 +146,15 @@ const checkLogin = function () {
       dataType: 'json',
       success: function (res) {
         if (res.data.code == 200) {
+          //已登录状态
+
+          if (app.globalData.cardId) {
+            wx.showModal({
+              title: '提示',
+              content: '',
+            })
+          }
+
           app.globalData.phone = res.data.data.phone;
           app.globalData.isLogin = true;
           wx.getUserInfo({
@@ -130,7 +173,7 @@ const checkLogin = function () {
 }
 
 const urlTo = function (url, defaultUrl) {
-  if (url && url!='undefined') {
+  if (url && url != 'undefined') {
     wx.redirectTo({
       url: '../' + url + '/' + url,
       success: function () {
@@ -140,7 +183,7 @@ const urlTo = function (url, defaultUrl) {
       }
     })
   } else {
-    wx.redirectTo({
+    wx.reLaunch({
       url: defaultUrl,
     })
   }
@@ -175,10 +218,10 @@ const btScan = function () {
 
                 wx.request({
                   url: serverUrl + '/charge/checkQrCode',
-                  data:{url:url,token:token},
-                  success: function(res2){
+                  data: { url: url, token: token },
+                  success: function (res2) {
                     errCheck(res2);
-                    if(res2.data.code===200){
+                    if (res2.data.code === 200) {
                       var deviceId = res2.data.data.device_id;
                       wx.navigateTo({
                         url: '../form/form?device_id=' + deviceId,
@@ -187,7 +230,7 @@ const btScan = function () {
                   },
                 })
 
-                
+
 
               }
             })
@@ -200,15 +243,15 @@ const btScan = function () {
   }
 };
 
-const errCheck = function(res){
-  if(res.data.code !== 200 && res.data.msg){
+const errCheck = function (res) {
+  if (res.data.code !== 200 && res.data.msg) {
     wx.showModal({
       title: '提示',
       content: res.data.msg,
       //showCancel:false,
-      success:function(res2){
-        if(res2.confirm){
-          if (res.data.code == 2009){
+      success: function (res2) {
+        if (res2.confirm) {
+          if (res.data.code == 2009) {
             //余额不足
             wx.navigateTo({
               url: '/pages/pay/pay',
@@ -227,6 +270,6 @@ module.exports = {
   checkLogin: checkLogin,
   checkToken: checkToken,
   urlTo: urlTo,
-  btScan:btScan,
-  errCheck:errCheck,
+  btScan: btScan,
+  errCheck: errCheck,
 }

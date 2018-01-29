@@ -1,59 +1,80 @@
 /* pages/orders/orders.wxss */
 
-.orders-view{
+.orders-view {
+  text-align: right;
   padding-top: 36rpx;
-  padding-bottom: 24rpx;
-  height: 86rpx;
+  /* padding-bottom: 24rpx; */
+  height: auto;
+  /* height: 86rpx; */
 }
 
-.left-view{
-  float:left;
+.left-view {
+  float: left;
   text-align: left;
   padding-left: 70rpx;
+  width: 330rpx;
 }
 
-.success-text{
+.success-text {
   display: block;
   font-size: 36rpx;
 }
-.time-text{
+
+.time-text {
   display: block;
   font-size: 24rpx;
 }
 
-money-text{
+money-text {
   display: block;
   font-size: 36rpx;
 }
 
-.wxpay-text{
+.wxpay-text {
   display: block;
   font-size: 28rpx;
-  color:rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.right-view{
-  float:right;
+.wxpay-text2 {
+  display: block;
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: line-through;
+}
+
+.wxpay-text3 {
+  display: block;
+  font-size: 22rpx;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.right-view {
+  /* display: inline-block; *//* width: 100%; */
   padding-right: 70rpx;
   text-align: right;
 }
 
-.no-orders-view{
+.no-orders-view {
   padding-top: 214rpx;
   text-align: center;
   margin-bottom: 109rpx;
 }
 
-.no-orders-img{
-  width:137rpx;
+.no-orders-img {
+  width: 137rpx;
   height: 214rpx;
 }
 
-.text-view{
+.text-view {
   text-align: center;
   height: auto;
 }
 
-.text{
+.text {
   font-size: 38rpx;
+}
+
+.line-css{
+  margin-top: 26rpx;
 }

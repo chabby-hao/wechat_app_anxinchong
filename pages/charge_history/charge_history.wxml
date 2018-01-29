@@ -1,5 +1,6 @@
 <!--pages/orders/orders.wxml-->
 <view class="beijing">
+
   <block wx:if="{{hasCharge}}">
     <block wx:for="{{list}}" wx:for-item="order" wx:key="key">
       <view class="list-view">
@@ -9,8 +10,16 @@
             <text class="time-text">{{order.begin_at}}</text>
           </view>
           <view class="right-view">
-            <text class="money-text">-{{order.pay_amount}}元</text>
-            <text class="wxpay-text">余额付款</text>
+
+            <block wx:if="{{order.cost_type == 2}}">
+              <text class="money-text">-0.00元</text>
+              <text class="wxpay-text2">-{{order.pay_amount}}元</text>
+              <text class="wxpay-text3">余额付款</text>
+            </block>
+            <block wx:else>
+              <text class="money-text">-{{order.pay_amount}}元</text>
+              <text class="wxpay-text">余额付款</text>
+            </block>
           </view>
         </view>
         <view class="line-css"></view>
@@ -18,12 +27,12 @@
     </block>
   </block>
   <block wx:if="{{!hasCharge}}">
-      <view class="no-orders-view">
-    <image class="no-orders-img" src="/image/nocharge@2x.png"></image>
-  </view>
-  <view class="text-view">
-    <text class="text">暂无记录</text>
-  </view>
+    <view class="no-orders-view">
+      <image class="no-orders-img" src="/image/nocharge@2x.png"></image>
+    </view>
+    <view class="text-view">
+      <text class="text">暂无记录</text>
+    </view>
   </block>
   <!-- <view class="list-view">
     <view class="orders-view">

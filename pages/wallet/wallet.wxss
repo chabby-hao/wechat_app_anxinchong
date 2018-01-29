@@ -1,11 +1,12 @@
 /* pages/wallet/wallet.wxss */
-page{
+
+page {
   min-height: 100%;
 }
 
 .balance-label-view {
   position: absolute;
-  top: 70rpx;
+  top: 40rpx;
   left: 152rpx;
 }
 
@@ -14,69 +15,98 @@ page{
   font-weight: bold;
 }
 
-.balance-icon{
+.balance-icon {
   font-size: 60rpx;
 }
 
 .balance-view {
-  padding-top:110rpx;
-  margin-bottom: 46rpx;
+  padding-top: 116rpx;
+  height: 188rpx;
+  line-height: 188rpx;
+  margin-bottom: 50rpx;
 }
 
 .balance-text {
-  font-size: 200rpx;
-   font-family: 'number','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-   /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  */
+  font-size: 180rpx;
+  font-family: 'number', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  */
+}
+
+.present-view {
+  padding-left: 74rpx;
+  vertical-align: middle;
+  margin: 0 auto;
+  border: solid 1rpx #eee;
+  border-radius: 100rpx;
+  border-color: rgba(255, 255, 255, 0.8);
+  line-height: 80rpx;
+  height: 80rpx;
+  width: 70%;
+  margin-bottom: 74rpx;
+}
+
+.present1 {
+  font-size: 26rpx;
+}
+
+.present2 {
+  padding-left:60rpx;
+  font-size: 32rpx;
+}
+
+.present3 {
+  font-family: 'number';
+  font-size: 34rpx;
 }
 
 .bt-view {
-  margin-top:50rpx;
-   display: flex; 
-   margin-bottom: 30rpx;
+  margin-top: 50rpx;
+  display: flex;
+  margin-bottom: 30rpx;
   /* align-items: center; */
 }
 
-.small-bt-view{
-  margin:0 auto;
+.small-bt-view {
+  margin: 0 auto;
   text-align: center;
 }
 
-.user-button{
-  margin:0 auto;
+.user-button {
+  margin: 0 auto;
   background-color: transparent;
-  border:none;
+  border: none;
   margin-bottom: 44rpx;
   /* align-items: center; */
 }
 
-.user-button::after{
+.user-button::after {
   content: none;
 }
 
-.pay-view{
+.pay-view {
   margin-top: 84rpx;
 }
 
-.pay-bt{
-  border:none;
+.pay-bt {
+  border: none;
   background-color: transparent;
-  margin:0 62rpx;
-  height:96rpx;
+  margin: 0 62rpx;
+  height: 96rpx;
   vertical-align: middle;
-  color:#fff;
+  color: #fff;
   padding: 0;
 }
 
-.pay-image{
-  width:628rpx;
+.pay-image {
+  width: 628rpx;
   height: 96rpx;
 }
 
-.tuikuan-text{
-  margin-top:30rpx;
+.tuikuan-text {
+  margin-top: 30rpx;
   text-align: center;
   width: 100%;
   font-size: 26rpx;
-  color:#fff;
+  color: #fff;
   text-decoration-line: underline;
 }
