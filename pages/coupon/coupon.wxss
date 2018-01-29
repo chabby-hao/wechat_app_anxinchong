@@ -1,0 +1,26 @@
+/* pages/coupon/coupon.wxss */
+
+.beijing{
+  padding-top: 50rpx;
+}
+
+.fuli-view {
+  position: relative;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+.fuli-img {
+  width: 716rpx;
+  max-width: 100%;
+}
+
+.text-info {
+  width: 220rpx;
+  z-index: 99;
+  position: absolute;
+  bottom: 90rpx;
+  left: 54rpx;
+  font-size: 24rpx;
+  color: rgba(80, 80, 80, 0.9);
+}

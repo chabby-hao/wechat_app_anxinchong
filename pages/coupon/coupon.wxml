@@ -1,0 +1,17 @@
+<!--pages/coupon/coupon.wxml-->
+<view class="beijing">
+  <block wx:for="{{lists}}" wx:for-item="item" wx:key="key">
+    <view class="fuli-view">
+      <image class="fuli-img" mode="widthFix" src="/image/fuli@2x.png"></image>
+      <text class="text-info">{{item.card_name}}</text>
+    </view>
+  </block>
+  <!-- <view class="fuli-view">
+    <image class="fuli-img" mode="widthFix" src="/image/fuli@2x.png"></image>
+    <text class="text-info">此卡只用于万和家园使用</text>
+  </view>
+  <view class="fuli-view">
+    <image class="fuli-img" mode="widthFix" src="/image/fuli@2x.png"></image>
+    <text class="text-info">ttttttttt</text>
+  </view> -->
+</view>
