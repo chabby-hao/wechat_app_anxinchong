@@ -1,32 +1,33 @@
 <view class="beijing">
   <view class="title title-address">{{address}}</view>
   <view class="title title-number">{{addressNumber}}</view>
-  <scroll-view scroll-left="{{left}}" bindtap="untouch" bindtouchmove='untouch' bindtouchcancel='untouch' bindtouchend='untouch' class="scroll-view" scroll-x="{{scroll_x}}" scroll-with-animation bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
-    <view class="left scroll-view-item_H">
-      <image class="scroll-image {{active1}}" src="/image/max@2x.png"></image>
-    </view>
-    <view class="scroll-view-item_H">
-      <image class="scroll-image {{active2}}" src="/image/1@2x.png"></image>
-    </view>
-    <view class="scroll-view-item_H">
-      <image class="scroll-image {{active3}}" src="/image/2@2x.png"></image>
-    </view>
-    <view class="right scroll-view-item_H">
-      <image class="scroll-image {{active4}}" src="/image/4@2x.png"></image>
-    </view>
-  </scroll-view>
 
-
+  <view class="chongzhi-view">
+    <button class="chongzhi-bt {{_num==1?'active':'none'}}" bindtap='choose' data-num="1" data-amount="{{defaultMode}}">
+      <view class="default-view">
+        充满模式
+        <span class="default">(默认)</span>
+      </view>
+    </button>
+    <button class="chongzhi-bt {{_num==4?'active':'none'}}" bindtap='choose' data-num="4" data-amount="4">
+      充<span class="amonut">4</span>小时</button>
+    <button class="chongzhi-bt {{_num==2?'active':'none'}}" bindtap='choose' data-num="2" data-amount="2">
+      充<span class="amonut">2</span>小时</button>
+    <button class="chongzhi-bt {{_num==3?'active':'none'}}" bindtap='choose' data-num="3" data-amount="1">
+      充<span class="amonut">1</span>小时</button>
+  </view>
 
   <form bindsubmit="formSubmit" report-submit="{{reportSubmit}}">
     <view class="bt-view">
+
+      <button style="background-color: transparent;" loading="{{loading}}" disabled='{{disabled}}' class="charge-bt bt-touming" form-type='submit'>
+        开始充电
+      </button>
       <view class="tishi">
         <image class="info" src="/image/info@2x.png"></image>
         <text class="tishi-text">开始充电前请您确认充电器已插好充电口以及电瓶插口</text>
       </view>
-      <button style="background-color: transparent;" loading="{{loading}}" disabled='{{disabled}}' class="charge-bt bt-touming" form-type='submit'>
-        开始充电
-      </button>
     </view>
+
   </form>
 </view>

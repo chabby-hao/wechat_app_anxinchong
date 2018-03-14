@@ -4,8 +4,8 @@ const serverUrl = require('../../config').serverUrl;
 const app = getApp();
 Page({
   data: {
-    address: '',
-    addressNumber: '',
+    address: '定时达撒多',
+    addressNumber: '安达市多',
     // items: [
     //   { value: '0', name: '充满', checked: true },
     //   { value: '3', name: '3小时', checked: false },
@@ -15,55 +15,67 @@ Page({
     deviceId: null,
     taskId: null,
     reportSubmit: true,//获取formId
-    scroll_x: true,
-    leftTo: 0,
-    left: 0,
-    active1: 'active',
-    active2: '',
-    active3: '',
-    active4: '',
+    // scroll_x: true,
+    // leftTo: 0,
+    // left: 0,
+    // active1: 'active',
+    // active2: '',
+    // active3: '',
+    // active4: '',
     mode: 0,//0=充满
     timer: null,
     loading: false,
     disabled: false,
     timeInterval: null,
+    defaultMode:0,//默认模式
+    _num: 1,
+  },
+
+  choose: function (obj) {
+    var data = obj.currentTarget.dataset;
+    var mode = data.amount;
+    var _num = data.num;
+    this.setData({
+      mode: mode,
+      _num: _num,
+    });
   },
 
   upper: function (e) {
-    this.setData({
-      leftTo: false
-    })
+    // this.setData({
+    //   leftTo: false
+    // })
   },
   lower: function (e) {
-    this.setData({
-      leftTo: false
-    })
+    // this.setData({
+    //   leftTo: false
+    // })
   },
   scroll: function (e) {
     //console.log(this.data.left);
     //0-92 92-276 277-463 463-549
     //设置leftTo
-    var sleft = e.detail.scrollLeft;
-    var active = 0;
-    if (sleft >= 0 && sleft <= 92) {
-      var active = 1;
-      var left = 0;
-    } else if (sleft > 92 && sleft <= 276) {
-      var active = 2;
-      var left = 184;
-    } else if (sleft > 277 && sleft <= 463) {
-      var active = 3;
-      var left = 369;
-    } else if (sleft > 463 && sleft <= 549) {
-      var active = 4;
-      var left = 549;
-    }
-    if (active) {
-      this.active(active);
-    }
-    this.setData({
-      leftTo: left,
-    })
+    // var sleft = e.detail.scrollLeft;
+    // var active = 0;
+    // if (sleft >= 0 && sleft <= 92) {
+    //   var active = 1;
+    //   var left = 0;
+    // } else if (sleft > 92 && sleft <= 276) {
+    //   var active = 2;
+    //   var left = 184;
+    // } else if (sleft > 277 && sleft <= 463) {
+    //   var active = 3;
+    //   var left = 369;
+    // } else if (sleft > 463 && sleft <= 549) {
+    //   var active = 4;
+    //   var left = 549;
+    // }
+    // if (active) {
+    //   this.active(active);
+    // }
+    // this.setData({
+    //   leftTo: left,
+    // })
     // console.log(e.detail.scrollLeft)
   },
   untouch: function () {
@@ -80,26 +92,26 @@ Page({
   },
 
   active: function (n) {
-    var data = {
-      active1: '',
-      active2: '',
-      active3: '',
-      active4: '',
-    };
-    if (n == 1) {
-      data.active1 = 'active';
-      data.mode = 0;
-    } else if (n == 2) {
-      data.active2 = 'active';
-      data.mode = 1;
-    } else if (n == 3) {
-      data.active3 = 'active';
-      data.mode = 2;
-    } else if (n == 4) {
-      data.active4 = 'active';
-      data.mode = 4;
-    }
-    this.setData(data);
+    // var data = {
+    //   active1: '',
+    //   active2: '',
+    //   active3: '',
+    //   active4: '',
+    // };
+    // if (n == 1) {
+    //   data.active1 = 'active';
+    //   data.mode = 0;
+    // } else if (n == 2) {
+    //   data.active2 = 'active';
+    //   data.mode = 1;
+    // } else if (n == 3) {
+    //   data.active3 = 'active';
+    //   data.mode = 2;
+    // } else if (n == 4) {
+    //   data.active4 = 'active';
+    //   data.mode = 4;
+    // }
+    // this.setData(data);
   },
 
   onLoad: function (option) {
