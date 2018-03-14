@@ -123,6 +123,18 @@ const getCard = function () {
             title: '提示',
             content: res.data.data.toast,
             showCancel: false,
+            confirmText: '前往充电',
+            success:function(res){
+              if(res.confirm){
+                btScan();
+              }
+            }
+          })
+        }else if(res.data.code==2018){
+          wx.showModal({
+            title: '提示',
+            content: res.data.msg,
+            showCancel:false,
           })
         }
       }

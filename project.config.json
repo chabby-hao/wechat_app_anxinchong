@@ -21,7 +21,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -118,6 +118,12 @@
 					"name": "help",
 					"pathName": "pages/help/help",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "card",
+					"pathName": "pages/index/index",
+					"query": "cardId=1011"
 				}
 			]
 		}
