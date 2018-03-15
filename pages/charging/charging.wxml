@@ -13,12 +13,14 @@
   </view>
 
   <block wx:if="{{charging}}">
-    <view class="yichong">
-      <image style="width:22rpx;height:46rpx;" src="/image/yichong@2x.png"></image>
+    <view class="text yichong">
+      已充
+      <!-- <image style="width:22rpx;height:46rpx;" src="/image/yichong@2x.png"></image> -->
     </view>
 
-    <view class="min">
-      <image style="width:24rpx;height:48rpx;" src="/image/min@2x.png"></image>
+    <view class="text min">
+      {{timeText}}
+      <!-- <image style="width:24rpx;height:48rpx;" src="/image/min@2x.png"></image> -->
     </view>
   </block>
 

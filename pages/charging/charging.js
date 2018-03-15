@@ -8,7 +8,7 @@ Page({
    */
   data: {
     charging: true,
-    mins: '0',//00
+    //mins: '0',//00
     minsClass: 'fenzhong-text',//fenzhong-text=分钟,ab-text=异常
     timeInterval: 0,
     wxCanvas: null,// 注意这里 需要创建一个对象来接受wxDraw对象
@@ -19,6 +19,8 @@ Page({
     timer: null,
     modeText: "",
     priceText: "",
+    sync:false,
+    timeText:'秒钟'
   },
 
   init: function () {
@@ -51,6 +53,10 @@ Page({
         url: serverUrl + '/charge/chargingTime',
         data: { token: token },
         success: function (res) {
+
+          //res.data = {code:200, data:{status:0,seconds:0}};//test
+
+
           if (res.data.code === 200) {
             //设置模式和价格
             that.setData({
@@ -59,12 +65,38 @@ Page({
             });
             var state = res.data.data.status;
             console.log('charge state . ' + state);
-            if (state === 0) {
+            if (state === 0 && !that.data.sync) {
               //充电中
               that.startCharging(that);//里面播放充电动作
-              var mins = res.data.data.mins;
+
+              var seconds = res.data.data.seconds;//mins可以表示分钟也可以表示秒钟
+              if(seconds <= 60){
+                //小于1分钟
+                var text = seconds;
+                
+              }else{
+                //大于1分钟
+                var text = parseInt(seconds / 60);
+                that.setData({
+                  'timeText': '分钟',
+                })
+              }
+              //同步时间
               that.setData({
-                'mins': mins
+                'mins': text,
+              })
+              that.setData({
+                'sync':setInterval(function(){
+                  text++;
+                  var mins = text;
+                  if(text >60){
+                    var mins = parseInt(mins / 60);
+                    that.setData({
+                      'timeText': '分钟',
+                    })
+                  }
+                  that.setData({'mins':mins});
+                }, 1000),
               });
             } else if (state === 1) {
               that.ab();
@@ -102,7 +134,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    //that.startCharging(that);
+    that.startCharging(that);
   },
 
   startCharging: function (that) {
@@ -121,7 +153,7 @@ Page({
   },
 
   animate: function (delay, type) {
-    console.log('begin 动画...');
+    console.log('loop 动画...');
     var animation = wx.createAnimation({
       delay: delay
     });

@@ -25,16 +25,23 @@ page{
   /* height: 750rpx; */
 }
 
+.text{
+  width:24rpx;
+  font-size: 24rpx;
+  color:#fff;
+  line-height: 28rpx;
+}
+
 .yichong {
   position: absolute;
   top: 292rpx;
-  left: 250rpx;
+  left: 228rpx;
 }
 
 .min {
   position: absolute;
   top: 376rpx;
-  right: 250rpx;
+  right: 228rpx;
 }
 
 .fenzhong-text {
