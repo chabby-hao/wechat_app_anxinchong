@@ -10,13 +10,22 @@ App({
     //checkToken(weixinLogin, checkLogin);
     var info = wx.getSystemInfoSync();
     console.log(info)
+    wx.myrequest = function (config) {
+      config.fail = function () {
+        wx.showToast({
+          title: '网络中断',
+          icon: 'loading',
+        })
+      };
+      wx.request(config);
+    }
   },
   globalData: {
-    token:null,
-    isLogin:false,
+    token: null,
+    isLogin: false,
     phone: null,
-    userInfo:null,
+    userInfo: null,
     checkActivity: false,//是否检测过活动，全局变量好判断
-    cardId:0,//是否有福利卡,全局常量好判断
+    cardId: 0,//是否有福利卡,全局常量好判断
   }
 })

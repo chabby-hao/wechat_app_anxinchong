@@ -31,7 +31,7 @@ Page({
   onReady: function () {
     var that = this;
     if (!app.globalData.checkActivity) {
-      wx.request({
+      wx.myrequest({
         url: serverUrl + '/activity/isOpenPaySend',
         success: function (res) {
           if (res.data.code === 200) {

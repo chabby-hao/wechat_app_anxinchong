@@ -156,12 +156,17 @@ Page({
         if (res.data.code === 200) {
           app.globalData.deviceId = deviceId;
           app.globalData.taskId = res.data.data.task_id;
-          wx.showModal({
-            title: '提示',
-            content: '30秒之后盒盖充电，请您检查插头是否插好',
-            showCancel: false,
-            confirmText: "知道了",
-          })
+          // wx.showModal({
+          //   title: '提示',
+          //   content: '30秒之后盒盖充电，请您检查插头是否插好',
+          //   showCancel: false,
+          //   confirmText: "知道了",
+          // })
+          wx.showToast({
+            title: '充电初始化，请您检查插头已插好',
+            icon: 'loading',
+            duration: 1000,
+          });
           that.setData({
             loading: true,
             disabled: true,
