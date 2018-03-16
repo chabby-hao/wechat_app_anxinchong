@@ -54,7 +54,7 @@ Page({
         data: { token: token },
         success: function (res) {
 
-          //res.data = {code:200, data:{status:0,seconds:0}};//test
+          res.data = {code:200, data:{status:0,seconds:0}};//test
 
 
           if (res.data.code === 200) {
